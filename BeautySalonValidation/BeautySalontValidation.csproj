@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CB23321D-3C95-4131-9B2B-3771381FBE7F}</ProjectGuid>
+    <ProjectGuid>{3AFE45B0-EA7A-411C-8004-EFEF651B0BD1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BeautySalonCodeFirstFromDB</RootNamespace>
-    <AssemblyName>BeautySalonCodeFirstFromDB</AssemblyName>
+    <RootNamespace>AutoLotValidation</RootNamespace>
+    <AssemblyName>AutoLotValidation</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -43,8 +43,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -53,16 +52,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Appointment.cs" />
-    <Compile Include="BeautySalonEntities.cs" />
-    <Compile Include="Client.cs" />
-    <Compile Include="Employee.cs" />
-    <Compile Include="Inventory.cs" />
-    <Compile Include="Payment.cs" />
+    <Compile Include="ClientsValidation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SeedDatabaseExtensionMethods.cs" />
-    <Compile Include="Service.cs" />
-    <Compile Include="StringOverrides.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BeautySalonCodeFirstFromDB\BeautySalonCodeFirstFromDB.csproj">
+      <Project>{cb23321d-3c95-4131-9b2b-3771381fbe7f}</Project>
+      <Name>BeautySalonCodeFirstFromDB</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

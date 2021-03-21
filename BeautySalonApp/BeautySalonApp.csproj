@@ -99,6 +99,10 @@
       <Project>{424885d6-2523-465f-8625-8933f169f403}</Project>
       <Name>BeautySalonDB</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BeautySalonValidation\BeautySalontValidation.csproj">
+      <Project>{3afe45b0-ea7a-411c-8004-efef651b0bd1}</Project>
+      <Name>BeautySalontValidation</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EFControllerUtilities\EFControllerUtilities.csproj">
       <Project>{f7b44d6d-563a-4d6d-9718-b554924b4d97}</Project>
       <Name>EFControllerUtilities</Name>
