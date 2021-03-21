@@ -21,4 +21,12 @@ namespace BeautySalonCodeFirstFromDB
             return $"{this.ClientLastName}, {this.ClientFirstName}";
         }
     }
+
+    public partial class Service
+    {
+        public override string ToString()
+        {
+            return $"{this.ServiceName} ==> " + String.Format("{0:C}", this.ServicePrice);
+        }
+    }
 }
