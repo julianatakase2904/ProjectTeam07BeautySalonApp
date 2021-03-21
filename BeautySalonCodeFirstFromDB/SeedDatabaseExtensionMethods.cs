@@ -21,10 +21,19 @@ namespace BeautySalonCodeFirstFromDB
             context.SaveChanges();
 
             // First drop table views
+            context.Database.ExecuteSqlCommand("drop table AppointmentsView");
 
             // Create views here
+            string createView = "Create View[dbo].[AppointmentsView] AS " +
+                "SELECT [Appointments].AppointmentDate, [Appointments]. AppointmentTime, " +
+                "[Clients].ClientFirstName, [Clients].ClientLastName, [Employees].EmployeeFirstName, " +
+                "[Employees].EmployeeLastName,  [Services].ServiceName, [Services].ServicePrice " +
+                "FROM [Appointments] inner join [Clients] on [Clients].ClientId = [Appointments].ClientId " +
+                "inner join [Services] on [Services].ServiceId = [Appointments].ServiceId " +
+                "inner join [Employees] on [Employees].EmployeeId = [Appointments].EmployeeId;";
 
             // Execute SQL command
+            context.Database.ExecuteSqlCommand(createView);
 
             // Load the tables
             context.Clients.Load();

@@ -12,12 +12,14 @@ namespace BeautySalonCodeFirstFromDB
         {
         }
 
+        public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
         public virtual DbSet<Appointment> Appointments { get; set; }
         public virtual DbSet<Client> Clients { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<Inventory> Inventories { get; set; }
         public virtual DbSet<Payment> Payments { get; set; }
         public virtual DbSet<Service> Services { get; set; }
+        public virtual DbSet<AppointmentsView> AppointmentsViews { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -49,6 +51,10 @@ namespace BeautySalonCodeFirstFromDB
                 .HasMany(e => e.Appointments)
                 .WithRequired(e => e.Service)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<AppointmentsView>()
+                .Property(e => e.ServicePrice)
+                .HasPrecision(18, 0);
         }
     }
 }
