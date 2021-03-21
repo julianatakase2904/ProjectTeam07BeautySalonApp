@@ -54,8 +54,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Appointment.cs" />
+    <Compile Include="AppointmentsView.cs" />
     <Compile Include="BeautySalonEntities.cs" />
     <Compile Include="Client.cs" />
+    <Compile Include="C__MigrationHistory.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="Inventory.cs" />
     <Compile Include="Payment.cs" />

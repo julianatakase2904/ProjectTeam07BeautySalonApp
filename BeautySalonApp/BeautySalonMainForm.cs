@@ -80,7 +80,7 @@ namespace BeautySalonApp
                 return;
             }
             // Reload gridview
-            dataGridViewAppointmentsOfTheDay.DataSource = Controller<BeautySalonEntities, Appointment>.SetBindingList();
+            dataGridViewAppointmentsOfTheDay.DataSource = Controller<BeautySalonEntities, AppointmentsView>.SetBindingList();
             dataGridViewAppointmentsOfTheDay.Refresh();
             
         }
@@ -222,12 +222,7 @@ namespace BeautySalonApp
             listBoxAppointmentsSelectService.SelectedIndex = -1;
 
             // ** APPOINTMENTS gridview
-            InitializeDataGridView<Appointment>(dataGridViewAppointmentsOfTheDay);
-            dataGridViewAppointmentsOfTheDay.Columns["Service"].Visible = false;
-            dataGridViewAppointmentsOfTheDay.Columns["Payments"].Visible = false;
-            dataGridViewAppointmentsOfTheDay.Columns["Client"].Visible = false;
-            dataGridViewAppointmentsOfTheDay.Columns["Employee"].Visible = false;
-
+            InitializeDataGridView<AppointmentsView>(dataGridViewAppointmentsOfTheDay);
         }
 
         /// <summary>
