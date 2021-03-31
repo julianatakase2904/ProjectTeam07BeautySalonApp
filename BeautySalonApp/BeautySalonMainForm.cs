@@ -27,12 +27,16 @@ namespace BeautySalonApp
 
             // Register event handlers
             this.Load += BeautySalonMainForm_Load;
-            buttonAppointmentsAddClient.Click += ButtonAppointmentsAddClient_Click;
-            buttonAppointmentsUpdateClient.Click += ButtonAppointmentsUpdateClient_Click;
             buttonAppointmentsSaveAppointment.Click += ButtonAppointmentsSaveAppointment_Click;
 
-            // When the client is selected event handler
-            listBoxAppointmentsClients.SelectedIndexChanged += (s, e) => GetClients();
+            // Create a childform for Add and Update client
+            AddOrUpdateClientsForm addOrUpdateClientsForm = new AddOrUpdateClientsForm();
+            buttonAppointmentsAddOrUpdateClient.Click += (s, e) => AddOrUpdateFormListBox<Client>(listBoxAppointmentsClients, addOrUpdateClientsForm);            
+        }
+
+        private void ButtonAppointmentsAddOrUpdateClient_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void ButtonAppointmentsSaveAppointment_Click(object sender, EventArgs e)
@@ -82,99 +86,9 @@ namespace BeautySalonApp
             // Reload gridview
             dataGridViewAppointmentsOfTheDay.DataSource = Controller<BeautySalonEntities, AppointmentsView>.SetBindingList();
             dataGridViewAppointmentsOfTheDay.Refresh();
-            
+
         }
 
-
-        /// <summary>
-        /// Updatin a client to the DB
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ButtonAppointmentsUpdateClient_Click(object sender, EventArgs e)
-        {
-            if (!(listBoxAppointmentsClients.SelectedItem is Client client)) 
-            {
-                MessageBox.Show("Client to be updated must be selected");
-                return;
-            }
-            client.ClientFirstName = textBoxAppointmentsClientFirstName.Text;
-            client.ClientLastName = textBoxAppointmentsClientLastName.Text;
-            client.ClientPhoneNumber = textBoxAppointmentsClientPhoneNumber.Text;
-            // Check validity
-            if(client.InfoIsValid())
-            {
-                MessageBox.Show("Client information is missing");
-                return;
-            }
-            // Check if client already exists
-            // Store first and last name into string to check if already exits. 
-            string clientFirstName = client.ClientFirstName;
-            string clientLastName = client.ClientLastName;
-            if (clientFirstName != client.ClientFirstName && clientLastName != client.ClientLastName && client.ClientExists())
-            {
-                MessageBox.Show("Client already exists: " + client.ClientLastName + ", " + client.ClientFirstName);
-                return;
-            }
-            // Update the db
-            if(Controller<BeautySalonEntities, Client>.UpdateEntity(client) == false)
-            {
-                MessageBox.Show("Cannot update client to database");
-                return;
-            }
-            // Reload the listbox again with the updated client
-            // Bind the listbox of clients to Clients table
-            listBoxAppointmentsClients.DataSource = Controller<BeautySalonEntities, Client>.SetBindingList();
-            // No client selected to start
-            listBoxAppointmentsClients.SelectedIndex = -1;
-            // Reset the clients textbox to blank
-            textBoxAppointmentsClientFirstName.ResetText();
-            textBoxAppointmentsClientLastName.ResetText();
-            textBoxAppointmentsClientPhoneNumber.ResetText();
-        }
-
-        /// <summary>
-        /// Adding a new client to the DB
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ButtonAppointmentsAddClient_Click(object sender, EventArgs e)
-        {
-            // Getting input from textbox and creating a new client object
-            Client client = new Client()
-            {
-                ClientFirstName = textBoxAppointmentsClientFirstName.Text,
-                ClientLastName = textBoxAppointmentsClientLastName.Text,
-                ClientPhoneNumber = textBoxAppointmentsClientPhoneNumber.Text
-            };
-            // Check validity
-            if(client.InfoIsValid())
-            {
-                MessageBox.Show("Client Information is Missing");
-                return;
-            }
-            // Check if the Client already exists
-            if(client.ClientExists())
-            {
-                MessageBox.Show("This client already exits: " + client.ClientLastName + ", " + client.ClientFirstName);
-                return;
-            }
-            // Add the client to DB
-            if(Controller<BeautySalonEntities, Client>.AddEntity(client) == null)
-            {
-                MessageBox.Show("Cannot add client to database");
-                return;
-            }
-            // Reload the listbox again with the new client
-            // Bind the listbox of clients to Clients table
-            listBoxAppointmentsClients.DataSource = Controller<BeautySalonEntities, Client>.SetBindingList();
-            // No client selected to start
-            listBoxAppointmentsClients.SelectedIndex = -1;
-            // Reset the clients textbox to blank
-            textBoxAppointmentsClientFirstName.ResetText();
-            textBoxAppointmentsClientLastName.ResetText();
-            textBoxAppointmentsClientPhoneNumber.ResetText();
-        }
 
         /// <summary>
         /// This method will load the controls
@@ -188,15 +102,11 @@ namespace BeautySalonApp
                 context.SeedDatabase();
             }
 
-            // ** CLIENTS Search and Add
-            // Bind the listbox of clients to Clients table
+            // ** CLIENTS listBox
+            // Bind the listbox of clients to Clients Table
             listBoxAppointmentsClients.DataSource = Controller<BeautySalonEntities, Client>.SetBindingList();
             // No client selected to start
             listBoxAppointmentsClients.SelectedIndex = -1;
-            // Reset the clients textbox to blank
-            textBoxAppointmentsClientFirstName.ResetText();
-            textBoxAppointmentsClientLastName.ResetText();
-            textBoxAppointmentsClientPhoneNumber.ResetText();
 
             // ** PROFESSIONALS/EMPLOYEES listBox
             // Bind the listbox of professionals/employees to Employees table
@@ -269,21 +179,10 @@ namespace BeautySalonApp
             // Delete item in the DB.
             Controller<BeautySalonEntities, T>.DeleteEntity(item);
             dataGridView.Refresh();
+
         }
 
-        /// <summary>
-        /// This method gets the selected client and fill the textbox with client's info
-        /// </summary>
-        private void GetClients()
-        {
-            if(!(listBoxAppointmentsClients.SelectedItem is Client client))
-            {
-                return;
-            }
-            textBoxAppointmentsClientFirstName.Text = client.ClientFirstName;
-            textBoxAppointmentsClientLastName.Text = client.ClientLastName;
-            textBoxAppointmentsClientPhoneNumber.Text = client.ClientPhoneNumber;
-        }
+
 
         /// <summary>
         /// Find the client ID with 
@@ -300,6 +199,39 @@ namespace BeautySalonApp
                 .Where(c => c.ClientPhoneNumber == clientPhoneNumber)
                 .FirstOrDefault();
             return client;
+        }
+
+
+        private void AddOrUpdateForm<T>(DataGridView dataGridView, Form form) where T : class
+        {
+            var result = form.ShowDialog();
+            // form close
+            if(result == DialogResult.OK)
+            {
+                //reload the db and update grid
+                dataGridView.DataSource = Controller<BeautySalonEntities, T>.SetBindingList();
+                // update the Appointments grid
+                dataGridViewAppointmentsOfTheDay.DataSource = Controller<BeautySalonEntities, AppointmentsView>.GetEntitiesNoTracking();
+                dataGridViewAppointmentsOfTheDay.Refresh();
+            }
+
+            form.Hide();
+        }
+
+        private void AddOrUpdateFormListBox<T>(ListBox listBox, Form form) where T : class
+        {
+            var result = form.ShowDialog();
+            // form close
+            if (result == DialogResult.OK)
+            {
+                //reload the db and update grid
+                listBox.DataSource = Controller<BeautySalonEntities, T>.SetBindingList();
+                // update the Appointments grid
+                dataGridViewAppointmentsOfTheDay.DataSource = Controller<BeautySalonEntities, AppointmentsView>.GetEntitiesNoTracking();
+                dataGridViewAppointmentsOfTheDay.Refresh();
+            }
+
+            form.Hide();
         }
     }
 
