@@ -31,7 +31,10 @@ namespace BeautySalonApp
         {
             this.tabControlBeautySalonApp = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.labelSystemName = new System.Windows.Forms.Label();
+            this.listBoxAppointmentsClients = new System.Windows.Forms.ListBox();
             this.listBoxAppointmentsSelectService = new System.Windows.Forms.ListBox();
+            this.buttonAppointmentsAddOrUpdateClient = new System.Windows.Forms.Button();
             this.labelAppointmentsSelectService = new System.Windows.Forms.Label();
             this.buttonAppointmentsSaveAppointment = new System.Windows.Forms.Button();
             this.dataGridViewAppointmentsOfTheDay = new System.Windows.Forms.DataGridView();
@@ -43,38 +46,32 @@ namespace BeautySalonApp
             this.listBoxAppointmentsProfessionals = new System.Windows.Forms.ListBox();
             this.labelAppointmentsSelectProfessional = new System.Windows.Forms.Label();
             this.labelAppointmentsForm = new System.Windows.Forms.Label();
-            this.groupBoxAppointmentsClients = new System.Windows.Forms.GroupBox();
-            this.listBoxAppointmentsClients = new System.Windows.Forms.ListBox();
-            this.buttonAppointmentsUpdateClient = new System.Windows.Forms.Button();
-            this.buttonAppointmentsAddClient = new System.Windows.Forms.Button();
-            this.textBoxAppointmentsClientPhoneNumber = new System.Windows.Forms.TextBox();
-            this.labelAppointmentsClientPhoneNumber = new System.Windows.Forms.Label();
-            this.textBoxAppointmentsClientLastName = new System.Windows.Forms.TextBox();
-            this.labelAppointmentsClientLastName = new System.Windows.Forms.Label();
-            this.textBoxAppointmentsClientFirstName = new System.Windows.Forms.TextBox();
-            this.labelAppointmentsClientFirstName = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControlBeautySalonApp.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAppointmentsOfTheDay)).BeginInit();
-            this.groupBoxAppointmentsClients.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlBeautySalonApp
             // 
             this.tabControlBeautySalonApp.Controls.Add(this.tabPage1);
             this.tabControlBeautySalonApp.Controls.Add(this.tabPage2);
-            this.tabControlBeautySalonApp.Location = new System.Drawing.Point(10, 6);
-            this.tabControlBeautySalonApp.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.tabControlBeautySalonApp.Location = new System.Drawing.Point(3, 2);
             this.tabControlBeautySalonApp.Name = "tabControlBeautySalonApp";
             this.tabControlBeautySalonApp.SelectedIndex = 0;
-            this.tabControlBeautySalonApp.Size = new System.Drawing.Size(3008, 1651);
+            this.tabControlBeautySalonApp.Size = new System.Drawing.Size(950, 671);
             this.tabControlBeautySalonApp.TabIndex = 0;
             // 
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.tabPage1.Controls.Add(this.pictureBox1);
+            this.tabPage1.Controls.Add(this.labelSystemName);
+            this.tabPage1.Controls.Add(this.listBoxAppointmentsClients);
             this.tabPage1.Controls.Add(this.listBoxAppointmentsSelectService);
+            this.tabPage1.Controls.Add(this.buttonAppointmentsAddOrUpdateClient);
             this.tabPage1.Controls.Add(this.labelAppointmentsSelectService);
             this.tabPage1.Controls.Add(this.buttonAppointmentsSaveAppointment);
             this.tabPage1.Controls.Add(this.dataGridViewAppointmentsOfTheDay);
@@ -86,41 +83,63 @@ namespace BeautySalonApp
             this.tabPage1.Controls.Add(this.listBoxAppointmentsProfessionals);
             this.tabPage1.Controls.Add(this.labelAppointmentsSelectProfessional);
             this.tabPage1.Controls.Add(this.labelAppointmentsForm);
-            this.tabPage1.Controls.Add(this.groupBoxAppointmentsClients);
-            this.tabPage1.Location = new System.Drawing.Point(12, 58);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(10, 9, 10, 9);
-            this.tabPage1.Size = new System.Drawing.Size(2984, 1581);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Size = new System.Drawing.Size(942, 645);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Appointments";
+            // 
+            // labelSystemName
+            // 
+            this.labelSystemName.AutoSize = true;
+            this.labelSystemName.Font = new System.Drawing.Font("Mistral", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSystemName.Location = new System.Drawing.Point(283, 44);
+            this.labelSystemName.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.labelSystemName.Name = "labelSystemName";
+            this.labelSystemName.Size = new System.Drawing.Size(385, 38);
+            this.labelSystemName.TabIndex = 16;
+            this.labelSystemName.Text = "Beauty Salon - Management System";
+            // 
+            // listBoxAppointmentsClients
+            // 
+            this.listBoxAppointmentsClients.FormattingEnabled = true;
+            this.listBoxAppointmentsClients.Location = new System.Drawing.Point(48, 189);
+            this.listBoxAppointmentsClients.Name = "listBoxAppointmentsClients";
+            this.listBoxAppointmentsClients.Size = new System.Drawing.Size(167, 186);
+            this.listBoxAppointmentsClients.TabIndex = 15;
             // 
             // listBoxAppointmentsSelectService
             // 
             this.listBoxAppointmentsSelectService.FormattingEnabled = true;
-            this.listBoxAppointmentsSelectService.ItemHeight = 37;
-            this.listBoxAppointmentsSelectService.Location = new System.Drawing.Point(2423, 233);
-            this.listBoxAppointmentsSelectService.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.listBoxAppointmentsSelectService.Location = new System.Drawing.Point(740, 190);
             this.listBoxAppointmentsSelectService.Name = "listBoxAppointmentsSelectService";
-            this.listBoxAppointmentsSelectService.Size = new System.Drawing.Size(438, 522);
+            this.listBoxAppointmentsSelectService.Size = new System.Drawing.Size(141, 186);
             this.listBoxAppointmentsSelectService.TabIndex = 14;
+            // 
+            // buttonAppointmentsAddOrUpdateClient
+            // 
+            this.buttonAppointmentsAddOrUpdateClient.Location = new System.Drawing.Point(233, 275);
+            this.buttonAppointmentsAddOrUpdateClient.Name = "buttonAppointmentsAddOrUpdateClient";
+            this.buttonAppointmentsAddOrUpdateClient.Size = new System.Drawing.Size(86, 43);
+            this.buttonAppointmentsAddOrUpdateClient.TabIndex = 6;
+            this.buttonAppointmentsAddOrUpdateClient.Text = "Add or Update Client";
+            this.buttonAppointmentsAddOrUpdateClient.UseVisualStyleBackColor = true;
             // 
             // labelAppointmentsSelectService
             // 
             this.labelAppointmentsSelectService.AutoSize = true;
-            this.labelAppointmentsSelectService.Location = new System.Drawing.Point(2413, 182);
-            this.labelAppointmentsSelectService.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.labelAppointmentsSelectService.Location = new System.Drawing.Point(737, 173);
             this.labelAppointmentsSelectService.Name = "labelAppointmentsSelectService";
-            this.labelAppointmentsSelectService.Size = new System.Drawing.Size(217, 37);
+            this.labelAppointmentsSelectService.Size = new System.Drawing.Size(76, 13);
             this.labelAppointmentsSelectService.TabIndex = 13;
             this.labelAppointmentsSelectService.Text = "Select Service";
             // 
             // buttonAppointmentsSaveAppointment
             // 
-            this.buttonAppointmentsSaveAppointment.Location = new System.Drawing.Point(2593, 1117);
-            this.buttonAppointmentsSaveAppointment.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.buttonAppointmentsSaveAppointment.Location = new System.Drawing.Point(819, 500);
             this.buttonAppointmentsSaveAppointment.Name = "buttonAppointmentsSaveAppointment";
-            this.buttonAppointmentsSaveAppointment.Size = new System.Drawing.Size(288, 108);
+            this.buttonAppointmentsSaveAppointment.Size = new System.Drawing.Size(91, 38);
             this.buttonAppointmentsSaveAppointment.TabIndex = 10;
             this.buttonAppointmentsSaveAppointment.Text = "Save Appointments";
             this.buttonAppointmentsSaveAppointment.UseVisualStyleBackColor = true;
@@ -128,50 +147,44 @@ namespace BeautySalonApp
             // dataGridViewAppointmentsOfTheDay
             // 
             this.dataGridViewAppointmentsOfTheDay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewAppointmentsOfTheDay.Location = new System.Drawing.Point(98, 902);
-            this.dataGridViewAppointmentsOfTheDay.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.dataGridViewAppointmentsOfTheDay.Location = new System.Drawing.Point(31, 424);
             this.dataGridViewAppointmentsOfTheDay.Name = "dataGridViewAppointmentsOfTheDay";
             this.dataGridViewAppointmentsOfTheDay.RowHeadersWidth = 24;
-            this.dataGridViewAppointmentsOfTheDay.Size = new System.Drawing.Size(2419, 561);
+            this.dataGridViewAppointmentsOfTheDay.Size = new System.Drawing.Size(764, 197);
             this.dataGridViewAppointmentsOfTheDay.TabIndex = 9;
             // 
             // labelAppointmentsOfTheDay
             // 
             this.labelAppointmentsOfTheDay.AutoSize = true;
-            this.labelAppointmentsOfTheDay.Location = new System.Drawing.Point(89, 825);
-            this.labelAppointmentsOfTheDay.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.labelAppointmentsOfTheDay.Location = new System.Drawing.Point(28, 397);
             this.labelAppointmentsOfTheDay.Name = "labelAppointmentsOfTheDay";
-            this.labelAppointmentsOfTheDay.Size = new System.Drawing.Size(473, 37);
+            this.labelAppointmentsOfTheDay.Size = new System.Drawing.Size(159, 13);
             this.labelAppointmentsOfTheDay.TabIndex = 8;
             this.labelAppointmentsOfTheDay.Text = "APPOINTMENTS OF THE DAY";
             // 
             // listBoxAppointmentsSelectTime
             // 
             this.listBoxAppointmentsSelectTime.FormattingEnabled = true;
-            this.listBoxAppointmentsSelectTime.ItemHeight = 37;
-            this.listBoxAppointmentsSelectTime.Location = new System.Drawing.Point(2046, 233);
-            this.listBoxAppointmentsSelectTime.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.listBoxAppointmentsSelectTime.Location = new System.Drawing.Point(575, 190);
             this.listBoxAppointmentsSelectTime.Name = "listBoxAppointmentsSelectTime";
-            this.listBoxAppointmentsSelectTime.Size = new System.Drawing.Size(229, 522);
+            this.listBoxAppointmentsSelectTime.Size = new System.Drawing.Size(75, 186);
             this.listBoxAppointmentsSelectTime.TabIndex = 7;
             // 
             // labelAppointmentsSelectTime
             // 
             this.labelAppointmentsSelectTime.AutoSize = true;
-            this.labelAppointmentsSelectTime.Location = new System.Drawing.Point(2036, 182);
-            this.labelAppointmentsSelectTime.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.labelAppointmentsSelectTime.Location = new System.Drawing.Point(572, 173);
             this.labelAppointmentsSelectTime.Name = "labelAppointmentsSelectTime";
-            this.labelAppointmentsSelectTime.Size = new System.Drawing.Size(184, 37);
+            this.labelAppointmentsSelectTime.Size = new System.Drawing.Size(63, 13);
             this.labelAppointmentsSelectTime.TabIndex = 6;
             this.labelAppointmentsSelectTime.Text = "Select Time";
             // 
             // labelAppointmentsSelectDate
             // 
             this.labelAppointmentsSelectDate.AutoSize = true;
-            this.labelAppointmentsSelectDate.Location = new System.Drawing.Point(1466, 182);
-            this.labelAppointmentsSelectDate.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.labelAppointmentsSelectDate.Location = new System.Drawing.Point(366, 173);
             this.labelAppointmentsSelectDate.Name = "labelAppointmentsSelectDate";
-            this.labelAppointmentsSelectDate.Size = new System.Drawing.Size(289, 37);
+            this.labelAppointmentsSelectDate.Size = new System.Drawing.Size(97, 13);
             this.labelAppointmentsSelectDate.TabIndex = 5;
             this.labelAppointmentsSelectDate.Text = "Select Professional";
             // 
@@ -179,29 +192,25 @@ namespace BeautySalonApp
             // 
             this.dateTimePickerAppointmentsDate.CustomFormat = "dd-MMM-yyyy";
             this.dateTimePickerAppointmentsDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerAppointmentsDate.Location = new System.Drawing.Point(1476, 233);
-            this.dateTimePickerAppointmentsDate.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.dateTimePickerAppointmentsDate.Location = new System.Drawing.Point(369, 190);
             this.dateTimePickerAppointmentsDate.Name = "dateTimePickerAppointmentsDate";
-            this.dateTimePickerAppointmentsDate.Size = new System.Drawing.Size(384, 44);
+            this.dateTimePickerAppointmentsDate.Size = new System.Drawing.Size(124, 20);
             this.dateTimePickerAppointmentsDate.TabIndex = 4;
             // 
             // listBoxAppointmentsProfessionals
             // 
             this.listBoxAppointmentsProfessionals.FormattingEnabled = true;
-            this.listBoxAppointmentsProfessionals.ItemHeight = 37;
-            this.listBoxAppointmentsProfessionals.Location = new System.Drawing.Point(1476, 379);
-            this.listBoxAppointmentsProfessionals.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.listBoxAppointmentsProfessionals.Location = new System.Drawing.Point(369, 241);
             this.listBoxAppointmentsProfessionals.Name = "listBoxAppointmentsProfessionals";
-            this.listBoxAppointmentsProfessionals.Size = new System.Drawing.Size(384, 374);
+            this.listBoxAppointmentsProfessionals.Size = new System.Drawing.Size(124, 134);
             this.listBoxAppointmentsProfessionals.TabIndex = 3;
             // 
             // labelAppointmentsSelectProfessional
             // 
             this.labelAppointmentsSelectProfessional.AutoSize = true;
-            this.labelAppointmentsSelectProfessional.Location = new System.Drawing.Point(1466, 327);
-            this.labelAppointmentsSelectProfessional.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.labelAppointmentsSelectProfessional.Location = new System.Drawing.Point(366, 223);
             this.labelAppointmentsSelectProfessional.Name = "labelAppointmentsSelectProfessional";
-            this.labelAppointmentsSelectProfessional.Size = new System.Drawing.Size(289, 37);
+            this.labelAppointmentsSelectProfessional.Size = new System.Drawing.Size(97, 13);
             this.labelAppointmentsSelectProfessional.TabIndex = 2;
             this.labelAppointmentsSelectProfessional.Text = "Select Professional";
             // 
@@ -209,143 +218,45 @@ namespace BeautySalonApp
             // 
             this.labelAppointmentsForm.AutoSize = true;
             this.labelAppointmentsForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAppointmentsForm.Location = new System.Drawing.Point(86, 68);
-            this.labelAppointmentsForm.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.labelAppointmentsForm.Location = new System.Drawing.Point(412, 117);
             this.labelAppointmentsForm.Name = "labelAppointmentsForm";
-            this.labelAppointmentsForm.Size = new System.Drawing.Size(402, 55);
+            this.labelAppointmentsForm.Size = new System.Drawing.Size(132, 20);
             this.labelAppointmentsForm.TabIndex = 1;
             this.labelAppointmentsForm.Text = "APPOINTMENTS";
             // 
-            // groupBoxAppointmentsClients
-            // 
-            this.groupBoxAppointmentsClients.Controls.Add(this.listBoxAppointmentsClients);
-            this.groupBoxAppointmentsClients.Controls.Add(this.buttonAppointmentsUpdateClient);
-            this.groupBoxAppointmentsClients.Controls.Add(this.buttonAppointmentsAddClient);
-            this.groupBoxAppointmentsClients.Controls.Add(this.textBoxAppointmentsClientPhoneNumber);
-            this.groupBoxAppointmentsClients.Controls.Add(this.labelAppointmentsClientPhoneNumber);
-            this.groupBoxAppointmentsClients.Controls.Add(this.textBoxAppointmentsClientLastName);
-            this.groupBoxAppointmentsClients.Controls.Add(this.labelAppointmentsClientLastName);
-            this.groupBoxAppointmentsClients.Controls.Add(this.textBoxAppointmentsClientFirstName);
-            this.groupBoxAppointmentsClients.Controls.Add(this.labelAppointmentsClientFirstName);
-            this.groupBoxAppointmentsClients.Location = new System.Drawing.Point(98, 182);
-            this.groupBoxAppointmentsClients.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
-            this.groupBoxAppointmentsClients.Name = "groupBoxAppointmentsClients";
-            this.groupBoxAppointmentsClients.Padding = new System.Windows.Forms.Padding(10, 9, 10, 9);
-            this.groupBoxAppointmentsClients.Size = new System.Drawing.Size(1286, 603);
-            this.groupBoxAppointmentsClients.TabIndex = 0;
-            this.groupBoxAppointmentsClients.TabStop = false;
-            this.groupBoxAppointmentsClients.Text = "CLIENTS";
-            // 
-            // listBoxAppointmentsClients
-            // 
-            this.listBoxAppointmentsClients.FormattingEnabled = true;
-            this.listBoxAppointmentsClients.ItemHeight = 37;
-            this.listBoxAppointmentsClients.Location = new System.Drawing.Point(814, 40);
-            this.listBoxAppointmentsClients.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
-            this.listBoxAppointmentsClients.Name = "listBoxAppointmentsClients";
-            this.listBoxAppointmentsClients.Size = new System.Drawing.Size(397, 522);
-            this.listBoxAppointmentsClients.TabIndex = 8;
-            // 
-            // buttonAppointmentsUpdateClient
-            // 
-            this.buttonAppointmentsUpdateClient.Location = new System.Drawing.Point(415, 410);
-            this.buttonAppointmentsUpdateClient.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
-            this.buttonAppointmentsUpdateClient.Name = "buttonAppointmentsUpdateClient";
-            this.buttonAppointmentsUpdateClient.Size = new System.Drawing.Size(272, 71);
-            this.buttonAppointmentsUpdateClient.TabIndex = 7;
-            this.buttonAppointmentsUpdateClient.Text = "Update Client";
-            this.buttonAppointmentsUpdateClient.UseVisualStyleBackColor = true;
-            // 
-            // buttonAppointmentsAddClient
-            // 
-            this.buttonAppointmentsAddClient.Location = new System.Drawing.Point(415, 287);
-            this.buttonAppointmentsAddClient.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
-            this.buttonAppointmentsAddClient.Name = "buttonAppointmentsAddClient";
-            this.buttonAppointmentsAddClient.Size = new System.Drawing.Size(272, 65);
-            this.buttonAppointmentsAddClient.TabIndex = 6;
-            this.buttonAppointmentsAddClient.Text = "Add Client";
-            this.buttonAppointmentsAddClient.UseVisualStyleBackColor = true;
-            // 
-            // textBoxAppointmentsClientPhoneNumber
-            // 
-            this.textBoxAppointmentsClientPhoneNumber.Location = new System.Drawing.Point(29, 364);
-            this.textBoxAppointmentsClientPhoneNumber.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
-            this.textBoxAppointmentsClientPhoneNumber.Name = "textBoxAppointmentsClientPhoneNumber";
-            this.textBoxAppointmentsClientPhoneNumber.Size = new System.Drawing.Size(308, 44);
-            this.textBoxAppointmentsClientPhoneNumber.TabIndex = 5;
-            // 
-            // labelAppointmentsClientPhoneNumber
-            // 
-            this.labelAppointmentsClientPhoneNumber.AutoSize = true;
-            this.labelAppointmentsClientPhoneNumber.Location = new System.Drawing.Point(19, 316);
-            this.labelAppointmentsClientPhoneNumber.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.labelAppointmentsClientPhoneNumber.Name = "labelAppointmentsClientPhoneNumber";
-            this.labelAppointmentsClientPhoneNumber.Size = new System.Drawing.Size(233, 37);
-            this.labelAppointmentsClientPhoneNumber.TabIndex = 4;
-            this.labelAppointmentsClientPhoneNumber.Text = "Phone Number";
-            // 
-            // textBoxAppointmentsClientLastName
-            // 
-            this.textBoxAppointmentsClientLastName.Location = new System.Drawing.Point(415, 134);
-            this.textBoxAppointmentsClientLastName.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
-            this.textBoxAppointmentsClientLastName.Name = "textBoxAppointmentsClientLastName";
-            this.textBoxAppointmentsClientLastName.Size = new System.Drawing.Size(308, 44);
-            this.textBoxAppointmentsClientLastName.TabIndex = 3;
-            // 
-            // labelAppointmentsClientLastName
-            // 
-            this.labelAppointmentsClientLastName.AutoSize = true;
-            this.labelAppointmentsClientLastName.Location = new System.Drawing.Point(405, 85);
-            this.labelAppointmentsClientLastName.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.labelAppointmentsClientLastName.Name = "labelAppointmentsClientLastName";
-            this.labelAppointmentsClientLastName.Size = new System.Drawing.Size(173, 37);
-            this.labelAppointmentsClientLastName.TabIndex = 2;
-            this.labelAppointmentsClientLastName.Text = "Last Name";
-            // 
-            // textBoxAppointmentsClientFirstName
-            // 
-            this.textBoxAppointmentsClientFirstName.Location = new System.Drawing.Point(29, 134);
-            this.textBoxAppointmentsClientFirstName.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
-            this.textBoxAppointmentsClientFirstName.Name = "textBoxAppointmentsClientFirstName";
-            this.textBoxAppointmentsClientFirstName.Size = new System.Drawing.Size(308, 44);
-            this.textBoxAppointmentsClientFirstName.TabIndex = 1;
-            // 
-            // labelAppointmentsClientFirstName
-            // 
-            this.labelAppointmentsClientFirstName.AutoSize = true;
-            this.labelAppointmentsClientFirstName.Location = new System.Drawing.Point(19, 85);
-            this.labelAppointmentsClientFirstName.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.labelAppointmentsClientFirstName.Name = "labelAppointmentsClientFirstName";
-            this.labelAppointmentsClientFirstName.Size = new System.Drawing.Size(175, 37);
-            this.labelAppointmentsClientFirstName.TabIndex = 0;
-            this.labelAppointmentsClientFirstName.Text = "First Name";
-            // 
             // tabPage2
             // 
-            this.tabPage2.Location = new System.Drawing.Point(12, 58);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(10, 9, 10, 9);
-            this.tabPage2.Size = new System.Drawing.Size(2984, 1581);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Size = new System.Drawing.Size(942, 645);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::BeautySalonApp.Properties.Resources.BeautySalon12;
+            this.pictureBox1.Location = new System.Drawing.Point(110, 19);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(120, 135);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 17;
+            this.pictureBox1.TabStop = false;
+            // 
             // BeautySalonMainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(3027, 1665);
+            this.ClientSize = new System.Drawing.Size(957, 677);
             this.Controls.Add(this.tabControlBeautySalonApp);
-            this.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.Name = "BeautySalonMainForm";
             this.Text = "Form1";
             this.tabControlBeautySalonApp.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAppointmentsOfTheDay)).EndInit();
-            this.groupBoxAppointmentsClients.ResumeLayout(false);
-            this.groupBoxAppointmentsClients.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -354,7 +265,6 @@ namespace BeautySalonApp
 
         private System.Windows.Forms.TabControl tabControlBeautySalonApp;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.GroupBox groupBoxAppointmentsClients;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button buttonAppointmentsSaveAppointment;
         private System.Windows.Forms.DataGridView dataGridViewAppointmentsOfTheDay;
@@ -366,17 +276,12 @@ namespace BeautySalonApp
         private System.Windows.Forms.ListBox listBoxAppointmentsProfessionals;
         private System.Windows.Forms.Label labelAppointmentsSelectProfessional;
         private System.Windows.Forms.Label labelAppointmentsForm;
-        private System.Windows.Forms.Button buttonAppointmentsUpdateClient;
-        private System.Windows.Forms.Button buttonAppointmentsAddClient;
-        private System.Windows.Forms.TextBox textBoxAppointmentsClientPhoneNumber;
-        private System.Windows.Forms.Label labelAppointmentsClientPhoneNumber;
-        private System.Windows.Forms.TextBox textBoxAppointmentsClientLastName;
-        private System.Windows.Forms.Label labelAppointmentsClientLastName;
-        private System.Windows.Forms.TextBox textBoxAppointmentsClientFirstName;
-        private System.Windows.Forms.Label labelAppointmentsClientFirstName;
-        private System.Windows.Forms.ListBox listBoxAppointmentsClients;
         private System.Windows.Forms.ListBox listBoxAppointmentsSelectService;
         private System.Windows.Forms.Label labelAppointmentsSelectService;
+        private System.Windows.Forms.Button buttonAppointmentsAddOrUpdateClient;
+        private System.Windows.Forms.ListBox listBoxAppointmentsClients;
+        private System.Windows.Forms.Label labelSystemName;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

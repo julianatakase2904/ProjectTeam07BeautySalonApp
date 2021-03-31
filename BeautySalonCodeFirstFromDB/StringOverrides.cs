@@ -18,7 +18,7 @@ namespace BeautySalonCodeFirstFromDB
     {
         public override string ToString()
         {
-            return $"{this.ClientLastName}, {this.ClientFirstName}";
+            return $"{this.ClientLastName}, {this.ClientFirstName} => {this.ClientPhoneNumber}";
         }
     }
 
