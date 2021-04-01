@@ -29,7 +29,18 @@ namespace BeautySalonValidation
         {
             return (client.ClientFirstName == null || client.ClientFirstName.Trim().Length == 0 ||
                 client.ClientLastName == null || client.ClientLastName.Trim().Length == 0 ||
-                client.ClientPhoneNumber == null || client.ClientPhoneNumber.Trim().Length == 0);
+                client.ClientPhoneNumber == null || client.ClientPhoneNumber.Trim().Length == 0 ||
+                client.ClientPhoneNumber.Trim().Length != 10);
         }
+
+        public static bool AppointmentExists(this Appointment appointment)
+        {
+            using(BeautySalonEntities context = new BeautySalonEntities())
+            {
+                context.Database.Log = (s => Debug.Write(s));
+                return context.Appointments.Any(a => a.AppointmentDate == appointment.AppointmentDate && a.AppointmentTime == appointment.AppointmentTime);
+            }
+        }
+
     }
 }

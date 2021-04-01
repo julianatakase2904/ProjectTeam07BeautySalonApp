@@ -76,6 +76,12 @@ namespace BeautySalonApp
                 ServiceId = serviceId
             };
 
+            if(appointment.AppointmentExists())
+            {
+                MessageBox.Show("There is an appointment already for this time and date.");
+                return;
+            }
+
             // Add the appointment to DB
             if (Controller<BeautySalonEntities, Appointment>.AddEntity(appointment) == null)
             {

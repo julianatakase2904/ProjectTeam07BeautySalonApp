@@ -49,12 +49,12 @@ namespace BeautySalonCodeFirstFromDB
             // List of Clients
             List<Client> clients = new List<Client>()
             {
-                new Client { ClientFirstName = "Rachel", ClientLastName = "Green", ClientPhoneNumber = "555-555-5555"},
-                new Client { ClientFirstName = "Monica", ClientLastName = "Geller", ClientPhoneNumber = "555-555-5555"},
-                new Client { ClientFirstName = "Ross", ClientLastName = "Geller", ClientPhoneNumber = "555-555-5555"},
-                new Client { ClientFirstName = "Chandler", ClientLastName = "Bing", ClientPhoneNumber = "555-555-5555"},
-                new Client { ClientFirstName = "Phoebe", ClientLastName = "Buffay", ClientPhoneNumber = "555-555-5555"},
-                new Client { ClientFirstName = "Joey", ClientLastName = "Tribiani", ClientPhoneNumber = "555-555-5555"}
+                new Client { ClientFirstName = "Rachel", ClientLastName = "Green", ClientPhoneNumber = "5555555555"},
+                new Client { ClientFirstName = "Monica", ClientLastName = "Geller", ClientPhoneNumber = "5555555555"},
+                new Client { ClientFirstName = "Ross", ClientLastName = "Geller", ClientPhoneNumber = "5555555555"},
+                new Client { ClientFirstName = "Chandler", ClientLastName = "Bing", ClientPhoneNumber = "5555555555"},
+                new Client { ClientFirstName = "Phoebe", ClientLastName = "Buffay", ClientPhoneNumber = "5555555555"},
+                new Client { ClientFirstName = "Joey", ClientLastName = "Tribiani", ClientPhoneNumber = "5555555555"}
             };
             context.Clients.AddRange(clients);
             context.SaveChanges();

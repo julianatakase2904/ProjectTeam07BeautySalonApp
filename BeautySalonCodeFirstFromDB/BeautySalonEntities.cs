@@ -10,6 +10,7 @@ namespace BeautySalonCodeFirstFromDB
         public BeautySalonEntities()
             : base("name=BeautySalonConnection")
         {
+            this.Configuration.LazyLoadingEnabled = false;
         }
 
         public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }

@@ -18,7 +18,23 @@ namespace BeautySalonCodeFirstFromDB
     {
         public override string ToString()
         {
-            return $"{this.ClientLastName}, {this.ClientFirstName} => {this.ClientPhoneNumber}";
+            // Formatting the phone number
+            String phone = "";
+            String phone1 = "";
+            String phone2 = "";
+            String phone3 = "";
+            try
+            {
+                phone = this.ClientPhoneNumber;
+                phone1 = phone.Substring(0, 3);
+                phone2 = phone.Substring(3, 3);
+                phone3 = phone.Substring(6);
+            } catch (Exception ex)
+            {
+                
+            }
+            
+            return $"{this.ClientLastName}, {this.ClientFirstName} => " + String.Format("{0}-{1}-{2}", phone1, phone2, phone3);
         }
     }
 
@@ -34,7 +50,11 @@ namespace BeautySalonCodeFirstFromDB
     {
         public override string ToString()
         {
-            return $"{this.AppointmentDate} ==> {this.AppointmentTime}";
+            //Find the client name
+            BeautySalonEntities context = new BeautySalonEntities();
+            var client = this.ClientId;
+            
+            return $"{this.AppointmentDate} ==> {this.AppointmentTime}, {context.Clients.Find(client)}";
         }
     }
 }
