@@ -10,6 +10,7 @@ namespace BeautySalonCodeFirstFromDB
         public BeautySalonEntities()
             : base("name=BeautySalonConnection")
         {
+            this.Configuration.LazyLoadingEnabled = false;
         }
 
         public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
@@ -26,7 +27,7 @@ namespace BeautySalonCodeFirstFromDB
             modelBuilder.Entity<Appointment>()
                 .HasMany(e => e.Payments)
                 .WithRequired(e => e.Appointment)
-                .WillCascadeOnDelete(false);
+                .WillCascadeOnDelete(true);
 
             modelBuilder.Entity<Client>()
                 .HasMany(e => e.Appointments)

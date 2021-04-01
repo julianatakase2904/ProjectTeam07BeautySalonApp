@@ -31,12 +31,11 @@ namespace BeautySalonApp
 
             // Create a childform for Add and Update client
             AddOrUpdateClientsForm addOrUpdateClientsForm = new AddOrUpdateClientsForm();
-            buttonAppointmentsAddOrUpdateClient.Click += (s, e) => AddOrUpdateFormListBox<Client>(listBoxAppointmentsClients, addOrUpdateClientsForm);            
-        }
+            buttonAppointmentsAddOrUpdateClient.Click += (s, e) => AddOrUpdateFormListBox<Client>(listBoxAppointmentsClients, addOrUpdateClientsForm);
 
-        private void ButtonAppointmentsAddOrUpdateClient_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
+            // Create a childform for Delete Appointments client
+            DeleteAppointmentsForm deleteAppointmentsForm = new DeleteAppointmentsForm();
+            buttonAppointmentsDeleteAppointment.Click += (s, e) => AddOrUpdateForm<AppointmentsView>(dataGridViewAppointmentsOfTheDay, deleteAppointmentsForm);
         }
 
         private void ButtonAppointmentsSaveAppointment_Click(object sender, EventArgs e)
@@ -76,6 +75,12 @@ namespace BeautySalonApp
                 EmployeeId = professionalId,
                 ServiceId = serviceId
             };
+
+            if(appointment.AppointmentExists())
+            {
+                MessageBox.Show("There is an appointment already for this time and date.");
+                return;
+            }
 
             // Add the appointment to DB
             if (Controller<BeautySalonEntities, Appointment>.AddEntity(appointment) == null)
@@ -132,7 +137,8 @@ namespace BeautySalonApp
             listBoxAppointmentsSelectService.SelectedIndex = -1;
 
             // ** APPOINTMENTS gridview
-            InitializeDataGridView<AppointmentsView>(dataGridViewAppointmentsOfTheDay);
+            
+            InitializeDataGridView<Appointment>(dataGridViewAppointmentsOfTheDay);
         }
 
         /// <summary>
@@ -145,20 +151,23 @@ namespace BeautySalonApp
         {
             // Set up gridview
             gridView.AllowUserToAddRows = false;
-            gridView.AllowUserToDeleteRows = true;
+            gridView.AllowUserToDeleteRows = false;
             gridView.ReadOnly = true;
             gridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            // Set event handler to delete row
-            gridView.UserDeletingRow += (s, e) => DeletingRow<T>(s as DataGridView, e);
+/*            // Set event handler to delete row
+            gridView.UserDeletingRow += (s, e) => DeletingRow<T>(s as DataGridView, e);*/
 
             // Binding the data
             gridView.DataSource = Controller<BeautySalonEntities, T>.SetBindingList();
 
-            foreach(string column in columnsToHide)
+            foreach (string column in columnsToHide)
             {
                 gridView.Columns[column].Visible = false;
             }
+
+            dataGridViewAppointmentsOfTheDay.DataSource = Controller<BeautySalonEntities, AppointmentsView>.GetEntitiesNoTracking();
+            dataGridViewAppointmentsOfTheDay.Refresh();
 
         }
 
@@ -181,8 +190,6 @@ namespace BeautySalonApp
             dataGridView.Refresh();
 
         }
-
-
 
         /// <summary>
         /// Find the client ID with 

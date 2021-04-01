@@ -35,24 +35,26 @@ namespace BeautySalonCodeFirstFromDB
             // Execute SQL command
             context.Database.ExecuteSqlCommand(createView);
 
+            context.SaveChanges();
+
             // Load the tables
-            context.Clients.Load();
+/*            context.Clients.Load();
             context.Inventories.Load();
             context.Employees.Load();
             context.Services.Load();
             context.Appointments.Load();
-            context.Payments.Load();
+            context.Payments.Load();*/
 
 
             // List of Clients
             List<Client> clients = new List<Client>()
             {
-                new Client { ClientFirstName = "Rachel", ClientLastName = "Green", ClientPhoneNumber = "555-555-5555"},
-                new Client { ClientFirstName = "Monica", ClientLastName = "Geller", ClientPhoneNumber = "555-555-5555"},
-                new Client { ClientFirstName = "Ross", ClientLastName = "Geller", ClientPhoneNumber = "555-555-5555"},
-                new Client { ClientFirstName = "Chandler", ClientLastName = "Bing", ClientPhoneNumber = "555-555-5555"},
-                new Client { ClientFirstName = "Phoebe", ClientLastName = "Buffay", ClientPhoneNumber = "555-555-5555"},
-                new Client { ClientFirstName = "Joey", ClientLastName = "Tribiani", ClientPhoneNumber = "555-555-5555"}
+                new Client { ClientFirstName = "Rachel", ClientLastName = "Green", ClientPhoneNumber = "5555555555"},
+                new Client { ClientFirstName = "Monica", ClientLastName = "Geller", ClientPhoneNumber = "5555555555"},
+                new Client { ClientFirstName = "Ross", ClientLastName = "Geller", ClientPhoneNumber = "5555555555"},
+                new Client { ClientFirstName = "Chandler", ClientLastName = "Bing", ClientPhoneNumber = "5555555555"},
+                new Client { ClientFirstName = "Phoebe", ClientLastName = "Buffay", ClientPhoneNumber = "5555555555"},
+                new Client { ClientFirstName = "Joey", ClientLastName = "Tribiani", ClientPhoneNumber = "5555555555"}
             };
             context.Clients.AddRange(clients);
             context.SaveChanges();
@@ -125,6 +127,7 @@ namespace BeautySalonCodeFirstFromDB
             context.Payments.AddRange(payments);
             context.SaveChanges();
 
+            context.AppointmentsViews.Load();
         }
     }
 }

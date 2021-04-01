@@ -46,11 +46,11 @@ namespace BeautySalonApp
             client.ClientFirstName = textBoxClientFirstName.Text;
             client.ClientLastName = textBoxClientLastName.Text;
             client.ClientPhoneNumber = textBoxClientPhoneNumber.Text;
-
+            
             // Validade
             if(client.InfoIsValid())
             {
-                MessageBox.Show("Client information is missing.");
+                MessageBox.Show("Client information is missing. Phone number must have 10 digits.");
                 return;
             }
 
