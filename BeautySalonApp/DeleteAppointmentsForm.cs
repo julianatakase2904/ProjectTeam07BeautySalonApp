@@ -28,15 +28,14 @@ namespace BeautySalonApp
 
         private void ButtonDeleteAppointment_Click(object sender, EventArgs e)
         {
-            BeautySalonEntities context = new BeautySalonEntities();
+           
             if(!(listBoxAppointments.SelectedItem is Appointment appointment))
             {
                 MessageBox.Show("Please select an appointment to delete.");
                 return;
             }
             
-            //context.Payments.Remove(context.Payments.Find(appointment.AppointmentId));
-            //context.Appointments.Remove(context.Appointments.Find(appointment.AppointmentId));
+            
             if (Controller<BeautySalonEntities, Appointment>.DeleteEntity(appointment) == false)
             {
                 MessageBox.Show("Cannot delete appointment from DataBase");
