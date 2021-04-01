@@ -48,6 +48,8 @@ namespace BeautySalonApp
             this.labelAppointmentsForm = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.labelAppointmentsInstructions = new System.Windows.Forms.Label();
+            this.buttonAppointmentsDeleteAppointment = new System.Windows.Forms.Button();
             this.tabControlBeautySalonApp.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAppointmentsOfTheDay)).BeginInit();
@@ -67,6 +69,8 @@ namespace BeautySalonApp
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.tabPage1.Controls.Add(this.buttonAppointmentsDeleteAppointment);
+            this.tabPage1.Controls.Add(this.labelAppointmentsInstructions);
             this.tabPage1.Controls.Add(this.pictureBox1);
             this.tabPage1.Controls.Add(this.labelSystemName);
             this.tabPage1.Controls.Add(this.listBoxAppointmentsClients);
@@ -137,7 +141,7 @@ namespace BeautySalonApp
             // 
             // buttonAppointmentsSaveAppointment
             // 
-            this.buttonAppointmentsSaveAppointment.Location = new System.Drawing.Point(819, 500);
+            this.buttonAppointmentsSaveAppointment.Location = new System.Drawing.Point(823, 460);
             this.buttonAppointmentsSaveAppointment.Name = "buttonAppointmentsSaveAppointment";
             this.buttonAppointmentsSaveAppointment.Size = new System.Drawing.Size(91, 38);
             this.buttonAppointmentsSaveAppointment.TabIndex = 10;
@@ -184,9 +188,9 @@ namespace BeautySalonApp
             this.labelAppointmentsSelectDate.AutoSize = true;
             this.labelAppointmentsSelectDate.Location = new System.Drawing.Point(366, 173);
             this.labelAppointmentsSelectDate.Name = "labelAppointmentsSelectDate";
-            this.labelAppointmentsSelectDate.Size = new System.Drawing.Size(97, 13);
+            this.labelAppointmentsSelectDate.Size = new System.Drawing.Size(63, 13);
             this.labelAppointmentsSelectDate.TabIndex = 5;
-            this.labelAppointmentsSelectDate.Text = "Select Professional";
+            this.labelAppointmentsSelectDate.Text = "Select Date";
             // 
             // dateTimePickerAppointmentsDate
             // 
@@ -218,7 +222,7 @@ namespace BeautySalonApp
             // 
             this.labelAppointmentsForm.AutoSize = true;
             this.labelAppointmentsForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAppointmentsForm.Location = new System.Drawing.Point(412, 117);
+            this.labelAppointmentsForm.Location = new System.Drawing.Point(398, 95);
             this.labelAppointmentsForm.Name = "labelAppointmentsForm";
             this.labelAppointmentsForm.Size = new System.Drawing.Size(132, 20);
             this.labelAppointmentsForm.TabIndex = 1;
@@ -243,6 +247,25 @@ namespace BeautySalonApp
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 17;
             this.pictureBox1.TabStop = false;
+            // 
+            // labelAppointmentsInstructions
+            // 
+            this.labelAppointmentsInstructions.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelAppointmentsInstructions.Location = new System.Drawing.Point(797, 60);
+            this.labelAppointmentsInstructions.Name = "labelAppointmentsInstructions";
+            this.labelAppointmentsInstructions.Size = new System.Drawing.Size(103, 75);
+            this.labelAppointmentsInstructions.TabIndex = 18;
+            this.labelAppointmentsInstructions.Text = "To Save an Appointment, select a client, date, Professional Name, Time, and Servi" +
+    "ce. ";
+            // 
+            // buttonAppointmentsDeleteAppointment
+            // 
+            this.buttonAppointmentsDeleteAppointment.Location = new System.Drawing.Point(823, 547);
+            this.buttonAppointmentsDeleteAppointment.Name = "buttonAppointmentsDeleteAppointment";
+            this.buttonAppointmentsDeleteAppointment.Size = new System.Drawing.Size(91, 38);
+            this.buttonAppointmentsDeleteAppointment.TabIndex = 19;
+            this.buttonAppointmentsDeleteAppointment.Text = "Delete Appointments";
+            this.buttonAppointmentsDeleteAppointment.UseVisualStyleBackColor = true;
             // 
             // BeautySalonMainForm
             // 
@@ -282,6 +305,8 @@ namespace BeautySalonApp
         private System.Windows.Forms.ListBox listBoxAppointmentsClients;
         private System.Windows.Forms.Label labelSystemName;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label labelAppointmentsInstructions;
+        private System.Windows.Forms.Button buttonAppointmentsDeleteAppointment;
     }
 }
 

@@ -29,4 +29,12 @@ namespace BeautySalonCodeFirstFromDB
             return $"{this.ServiceName} ==> " + String.Format("{0:C}", this.ServicePrice);
         }
     }
+
+    public partial class Appointment
+    {
+        public override string ToString()
+        {
+            return $"{this.AppointmentDate} ==> {this.AppointmentTime}";
+        }
+    }
 }

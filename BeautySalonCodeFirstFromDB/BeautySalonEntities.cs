@@ -26,22 +26,22 @@ namespace BeautySalonCodeFirstFromDB
             modelBuilder.Entity<Appointment>()
                 .HasMany(e => e.Payments)
                 .WithRequired(e => e.Appointment)
-                .WillCascadeOnDelete(false);
+                .WillCascadeOnDelete(true);
 
             modelBuilder.Entity<Client>()
                 .HasMany(e => e.Appointments)
                 .WithRequired(e => e.Client)
-                .WillCascadeOnDelete(false);
+                .WillCascadeOnDelete(true);
 
             modelBuilder.Entity<Employee>()
                 .HasMany(e => e.Appointments)
                 .WithRequired(e => e.Employee)
-                .WillCascadeOnDelete(false);
+                .WillCascadeOnDelete(true);
 
             modelBuilder.Entity<Employee>()
                 .HasMany(e => e.Payments)
                 .WithRequired(e => e.Employee)
-                .WillCascadeOnDelete(false);
+                .WillCascadeOnDelete(true);
 
             modelBuilder.Entity<Service>()
                 .Property(e => e.ServicePrice)
@@ -50,7 +50,7 @@ namespace BeautySalonCodeFirstFromDB
             modelBuilder.Entity<Service>()
                 .HasMany(e => e.Appointments)
                 .WithRequired(e => e.Service)
-                .WillCascadeOnDelete(false);
+                .WillCascadeOnDelete(true);
 
             modelBuilder.Entity<AppointmentsView>()
                 .Property(e => e.ServicePrice)

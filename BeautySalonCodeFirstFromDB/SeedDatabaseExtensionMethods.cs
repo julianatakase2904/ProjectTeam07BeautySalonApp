@@ -35,13 +35,15 @@ namespace BeautySalonCodeFirstFromDB
             // Execute SQL command
             context.Database.ExecuteSqlCommand(createView);
 
+            context.SaveChanges();
+
             // Load the tables
-            context.Clients.Load();
+/*            context.Clients.Load();
             context.Inventories.Load();
             context.Employees.Load();
             context.Services.Load();
             context.Appointments.Load();
-            context.Payments.Load();
+            context.Payments.Load();*/
 
 
             // List of Clients
@@ -125,6 +127,7 @@ namespace BeautySalonCodeFirstFromDB
             context.Payments.AddRange(payments);
             context.SaveChanges();
 
+            context.AppointmentsViews.Load();
         }
     }
 }
