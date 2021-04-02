@@ -61,7 +61,7 @@
             this.buttonNewProduct.TabIndex = 1;
             this.buttonNewProduct.Text = "New Product";
             this.buttonNewProduct.UseVisualStyleBackColor = false;
-            this.buttonNewProduct.Click += new System.EventHandler(this.button1_Click);
+            //this.buttonNewProduct.Click += new System.EventHandler(this.button1_Click);
             // 
             // pictureBoxLogo
             // 
