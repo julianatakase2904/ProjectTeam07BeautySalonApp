@@ -25,6 +25,9 @@ namespace BeautySalonApp
             // Set the application name
             this.Text = "Beauty Salon Application";
 
+            this.tabPageInventory.Controls.Add(new InventoryForm());
+            this.tabPageServices.Controls.Add(new ServicesForm());
+
             // Register event handlers
             this.Load += BeautySalonMainForm_Load;
             buttonAppointmentsSaveAppointment.Click += ButtonAppointmentsSaveAppointment_Click;

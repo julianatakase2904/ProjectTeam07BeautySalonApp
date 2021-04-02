@@ -56,11 +56,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddInventoryProductForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddInventoryProductForm.Designer.cs">
+      <DependentUpon>AddInventoryProductForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddOrUpdateClientsForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AddOrUpdateClientsForm.Designer.cs">
       <DependentUpon>AddOrUpdateClientsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddServiceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddServiceForm.Designer.cs">
+      <DependentUpon>AddServiceForm.cs</DependentUpon>
     </Compile>
     <Compile Include="BeautySalonMainForm.cs">
       <SubType>Form</SubType>
@@ -75,15 +87,36 @@
     <Compile Include="DeleteAppointmentsForm.Designer.cs">
       <DependentUpon>DeleteAppointmentsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="InventoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InventoryForm.Designer.cs">
+      <DependentUpon>InventoryForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServicesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServicesForm.Designer.cs">
+      <DependentUpon>ServicesForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddInventoryProductForm.resx">
+      <DependentUpon>AddInventoryProductForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddOrUpdateClientsForm.resx">
       <DependentUpon>AddOrUpdateClientsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddServiceForm.resx">
+      <DependentUpon>AddServiceForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BeautySalonMainForm.resx">
       <DependentUpon>BeautySalonMainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DeleteAppointmentsForm.resx">
       <DependentUpon>DeleteAppointmentsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InventoryForm.resx">
+      <DependentUpon>InventoryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -95,6 +128,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ServicesForm.resx">
+      <DependentUpon>ServicesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
