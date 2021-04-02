@@ -24,7 +24,11 @@ namespace BeautySalonValidation
                 return context.Clients.Any(c => c.ClientFirstName == client.ClientFirstName && c.ClientLastName == client.ClientLastName);
             }
         }
-
+        /// <summary>
+        /// Validate if all fields to add clients are correct
+        /// </summary>
+        /// <param name="client"></param>
+        /// <returns></returns>
         public static bool InfoIsValid(this Client client)
         {
             return (client.ClientFirstName == null || client.ClientFirstName.Trim().Length == 0 ||
@@ -32,7 +36,11 @@ namespace BeautySalonValidation
                 client.ClientPhoneNumber == null || client.ClientPhoneNumber.Trim().Length == 0 ||
                 client.ClientPhoneNumber.Trim().Length != 10);
         }
-
+        /// <summary>
+        /// Check if appointments already exist for the same time and day
+        /// </summary>
+        /// <param name="appointment"></param>
+        /// <returns></returns>
         public static bool AppointmentExists(this Appointment appointment)
         {
             using(BeautySalonEntities context = new BeautySalonEntities())
