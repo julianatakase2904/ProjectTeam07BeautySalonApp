@@ -74,6 +74,12 @@
     <Compile Include="AddServiceForm.Designer.cs">
       <DependentUpon>AddServiceForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="BackUpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BackUpForm.Designer.cs">
+      <DependentUpon>BackUpForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="BeautySalonMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +114,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddServiceForm.resx">
       <DependentUpon>AddServiceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BackUpForm.resx">
+      <DependentUpon>BackUpForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BeautySalonMainForm.resx">
       <DependentUpon>BeautySalonMainForm.cs</DependentUpon>
@@ -157,6 +166,10 @@
     <ProjectReference Include="..\BeautySalonValidation\BeautySalontValidation.csproj">
       <Project>{3afe45b0-ea7a-411c-8004-efef651b0bd1}</Project>
       <Name>BeautySalontValidation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataTableAccessLayer\DataTableAccessLayer.csproj">
+      <Project>{62046f68-706d-4350-82d1-c205f0ec64de}</Project>
+      <Name>DataTableAccessLayer</Name>
     </ProjectReference>
     <ProjectReference Include="..\EFControllerUtilities\EFControllerUtilities.csproj">
       <Project>{f7b44d6d-563a-4d6d-9718-b554924b4d97}</Project>
