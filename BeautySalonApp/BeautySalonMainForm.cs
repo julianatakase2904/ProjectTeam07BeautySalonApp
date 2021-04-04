@@ -1,17 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using BeautySalonCodeFirstFromDB;
 using EFControllerUtilities;
 using BeautySalonValidation;
 using System.Diagnostics;
-
 
 
 namespace BeautySalonApp
@@ -39,6 +33,19 @@ namespace BeautySalonApp
             // Create a childform for Delete Appointments client
             DeleteAppointmentsForm deleteAppointmentsForm = new DeleteAppointmentsForm();
             buttonAppointmentsDeleteAppointment.Click += (s, e) => AddOrUpdateForm<AppointmentsView>(dataGridViewAppointmentsOfTheDay, deleteAppointmentsForm);
+
+            // GO to the backup screen
+            buttonDBBackup.Click += ButtonDBBackup_Click;
+        }
+        /// <summary>
+        /// This method shows the Backup screen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonDBBackup_Click(object sender, EventArgs e)
+        {
+            BackUpForm backUpForm = new BackUpForm();
+            backUpForm.Show();
         }
 
         private void ButtonAppointmentsSaveAppointment_Click(object sender, EventArgs e)

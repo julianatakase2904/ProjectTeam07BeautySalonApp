@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.438
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31019.35
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeautySalonApp", "BeautySalonApp\BeautySalonApp.csproj", "{C63AB412-FA9D-4E5D-BA64-23DC8BFB2593}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeautySalonCodeFirstFromDB", "BeautySalonCodeFirstFromDB\BeautySalonCodeFirstFromDB.csproj", "{CB23321D-3C95-4131-9B2B-3771381FBE7F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeautySalontValidation", "BeautySalonValidation\BeautySalontValidation.csproj", "{3AFE45B0-EA7A-411C-8004-EFEF651B0BD1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataTableAccessLayer", "DataTableAccessLayer\DataTableAccessLayer.csproj", "{62046F68-706D-4350-82D1-C205F0EC64DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{3AFE45B0-EA7A-411C-8004-EFEF651B0BD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3AFE45B0-EA7A-411C-8004-EFEF651B0BD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3AFE45B0-EA7A-411C-8004-EFEF651B0BD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62046F68-706D-4350-82D1-C205F0EC64DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62046F68-706D-4350-82D1-C205F0EC64DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62046F68-706D-4350-82D1-C205F0EC64DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62046F68-706D-4350-82D1-C205F0EC64DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
