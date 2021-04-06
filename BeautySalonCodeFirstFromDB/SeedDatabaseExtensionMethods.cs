@@ -22,6 +22,7 @@ namespace BeautySalonCodeFirstFromDB
 
             // First drop table views
             context.Database.ExecuteSqlCommand("drop table AppointmentsView");
+            context.Database.ExecuteSqlCommand("drop table ServicesView");
 
             // Create views here
             string createView = "Create View[dbo].[AppointmentsView] AS " +
@@ -32,8 +33,15 @@ namespace BeautySalonCodeFirstFromDB
                 "inner join [Services] on [Services].ServiceId = [Appointments].ServiceId " +
                 "inner join [Employees] on [Employees].EmployeeId = [Appointments].EmployeeId;";
 
+            string createServicesView = "Create View[dbo].[ServicesView] AS " +
+            "SELECT [Services].ServiceName, [Services].ServicePrice, [Inventory].ProductName " +
+            "FROM [Services] " +
+            "INNER JOIN [Inventory] " +
+            "ON [Services].ProductId = [Inventory].ProductId";
+
             // Execute SQL command
             context.Database.ExecuteSqlCommand(createView);
+            context.Database.ExecuteSqlCommand(createServicesView);
 
             context.SaveChanges();
 

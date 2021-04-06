@@ -15,6 +15,7 @@
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -56,11 +57,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddInventoryProductForm.cs">
+    <Compile Include="AddOrUpdateInventoryProductForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddInventoryProductForm.Designer.cs">
-      <DependentUpon>AddInventoryProductForm.cs</DependentUpon>
+    <Compile Include="AddOrUpdateInventoryProductForm.Designer.cs">
+      <DependentUpon>AddOrUpdateInventoryProductForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AddOrUpdateClientsForm.cs">
       <SubType>Form</SubType>
@@ -106,8 +107,8 @@
     <Compile Include="ServicesForm.Designer.cs">
       <DependentUpon>ServicesForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddInventoryProductForm.resx">
-      <DependentUpon>AddInventoryProductForm.cs</DependentUpon>
+    <EmbeddedResource Include="AddOrUpdateInventoryProductForm.resx">
+      <DependentUpon>AddOrUpdateInventoryProductForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddOrUpdateClientsForm.resx">
       <DependentUpon>AddOrUpdateClientsForm.cs</DependentUpon>

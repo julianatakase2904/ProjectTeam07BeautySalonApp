@@ -23,15 +23,37 @@ namespace BeautySalonApp
             this.Visible = true;
             this.Dock = DockStyle.Fill;
 
-            InitializeDataGridView<Service>(dataGridViewInventory, new string[] { "ServiceId","ProductId","Appointments" });
+            InitializeDataGridView<ServicesView>(dataGridViewInventory);
+            // new string[] { "ServiceId","ProductId","Appointments" }
 
+            buttonNewEntry.Click += ButtonNewEntry_Click;
+            buttonDeleteEntry.Click += ButtonDeleteEntry_Click;
+            buttonUpdateEntry.Click += ButtonUpdateEntry_Click;
+        }
+
+        private void ButtonUpdateEntry_Click(object sender, EventArgs e)
+        {
+            AddServiceForm addServiceForm = new AddServiceForm();
+            addServiceForm.Show();
+        }
+
+        private void ButtonDeleteEntry_Click(object sender, EventArgs e)
+        {
+            AddServiceForm addServiceForm = new AddServiceForm();
+            addServiceForm.Show();
+        }
+
+        private void ButtonNewEntry_Click(object sender, EventArgs e)
+        {
+            AddServiceForm addServiceForm = new AddServiceForm();
+            addServiceForm.Show();
         }
 
         //EVENT HANDLERS
 
 
         //PRIVATE METHODS
-        
+
         private void InitializeDataGridView<T>(DataGridView gridView, params string[] columnsToHide) where T : class
         {
             // gridview options
@@ -53,7 +75,8 @@ namespace BeautySalonApp
                 gridView.Columns[column].Visible = false;
             }
 
-            dataGridViewInventory.DataSource = Controller<BeautySalonEntities, Service>.GetEntitiesNoTracking();
+            dataGridViewInventory.DataSource = Controller<BeautySalonEntities, T>.SetBindingList();
+            dataGridViewInventory.Refresh();
 
         }
     }

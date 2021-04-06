@@ -21,6 +21,7 @@ namespace BeautySalonCodeFirstFromDB
         public virtual DbSet<Payment> Payments { get; set; }
         public virtual DbSet<Service> Services { get; set; }
         public virtual DbSet<AppointmentsView> AppointmentsViews { get; set; }
+        public virtual DbSet<ServicesView> ServicesViews { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -56,6 +57,8 @@ namespace BeautySalonCodeFirstFromDB
             modelBuilder.Entity<AppointmentsView>()
                 .Property(e => e.ServicePrice)
                 .HasPrecision(18, 0);
+
+            modelBuilder.Entity<ServicesView>();
         }
     }
 }

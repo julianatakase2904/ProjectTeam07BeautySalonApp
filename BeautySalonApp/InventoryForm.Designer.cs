@@ -30,11 +30,11 @@
         {
             this.dataGridViewInventory = new System.Windows.Forms.DataGridView();
             this.buttonNewProduct = new System.Windows.Forms.Button();
-            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.labelSystemName = new System.Windows.Forms.Label();
             this.labelFormName = new System.Windows.Forms.Label();
             this.buttonUpdateProduct = new System.Windows.Forms.Button();
             this.buttonDeleteProduct = new System.Windows.Forms.Button();
+            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInventory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.SuspendLayout();
@@ -55,23 +55,12 @@
             // 
             this.buttonNewProduct.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.buttonNewProduct.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonNewProduct.Location = new System.Drawing.Point(702, 712);
+            this.buttonNewProduct.Location = new System.Drawing.Point(642, 712);
             this.buttonNewProduct.Name = "buttonNewProduct";
-            this.buttonNewProduct.Size = new System.Drawing.Size(130, 50);
+            this.buttonNewProduct.Size = new System.Drawing.Size(150, 50);
             this.buttonNewProduct.TabIndex = 1;
             this.buttonNewProduct.Text = "New Product";
             this.buttonNewProduct.UseVisualStyleBackColor = false;
-            //this.buttonNewProduct.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // pictureBoxLogo
-            // 
-            this.pictureBoxLogo.Image = global::BeautySalonApp.Properties.Resources.BeautySalon12;
-            this.pictureBoxLogo.Location = new System.Drawing.Point(68, 60);
-            this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(120, 135);
-            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBoxLogo.TabIndex = 2;
-            this.pictureBoxLogo.TabStop = false;
             // 
             // labelSystemName
             // 
@@ -90,7 +79,7 @@
             this.labelFormName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelFormName.AutoSize = true;
             this.labelFormName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFormName.Location = new System.Drawing.Point(617, 158);
+            this.labelFormName.Location = new System.Drawing.Point(635, 166);
             this.labelFormName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelFormName.Name = "labelFormName";
             this.labelFormName.Size = new System.Drawing.Size(154, 29);
@@ -101,9 +90,9 @@
             // 
             this.buttonUpdateProduct.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.buttonUpdateProduct.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonUpdateProduct.Location = new System.Drawing.Point(838, 712);
+            this.buttonUpdateProduct.Location = new System.Drawing.Point(798, 712);
             this.buttonUpdateProduct.Name = "buttonUpdateProduct";
-            this.buttonUpdateProduct.Size = new System.Drawing.Size(130, 50);
+            this.buttonUpdateProduct.Size = new System.Drawing.Size(150, 50);
             this.buttonUpdateProduct.TabIndex = 20;
             this.buttonUpdateProduct.Text = "Update Product";
             this.buttonUpdateProduct.UseVisualStyleBackColor = false;
@@ -112,12 +101,22 @@
             // 
             this.buttonDeleteProduct.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.buttonDeleteProduct.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonDeleteProduct.Location = new System.Drawing.Point(974, 712);
+            this.buttonDeleteProduct.Location = new System.Drawing.Point(954, 712);
             this.buttonDeleteProduct.Name = "buttonDeleteProduct";
-            this.buttonDeleteProduct.Size = new System.Drawing.Size(130, 50);
+            this.buttonDeleteProduct.Size = new System.Drawing.Size(150, 50);
             this.buttonDeleteProduct.TabIndex = 21;
             this.buttonDeleteProduct.Text = "Delete Product";
             this.buttonDeleteProduct.UseVisualStyleBackColor = false;
+            // 
+            // pictureBoxLogo
+            // 
+            this.pictureBoxLogo.Image = global::BeautySalonApp.Properties.Resources.BeautySalon12;
+            this.pictureBoxLogo.Location = new System.Drawing.Point(68, 60);
+            this.pictureBoxLogo.Name = "pictureBoxLogo";
+            this.pictureBoxLogo.Size = new System.Drawing.Size(120, 135);
+            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBoxLogo.TabIndex = 2;
+            this.pictureBoxLogo.TabStop = false;
             // 
             // InventoryForm
             // 

@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using EFControllerUtilities;
 using BeautySalonCodeFirstFromDB;
 using DataTableAccessLayer;
+using System.Data.Entity.Infrastructure.Pluralization;
 
 namespace BeautySalonApp
 {
@@ -18,8 +19,6 @@ namespace BeautySalonApp
         {
             InitializeComponent();
 
-            // Load gridviews
-            this.Load += BackUpForm_Load;
 
             beautySalonDB = new SqlDataTableAccessLayer();
 
@@ -32,24 +31,22 @@ namespace BeautySalonApp
             string connectionString = beautySalonDB.GetConnectionString("BeautySalonConnection");
             beautySalonDB.OpenConnection(connectionString);
 
+            // Load gridviews
+            this.Load += BackUpForm_Load;
+
             buttonBackup.Click += (s, e) => beautySalonDB.BackupDataSetToXML(beautySalonDataset);
 
             this.FormClosing += (s, e) => beautySalonDB.CloseConnection();
-            beautySalonDB.CloseConnection();
+
         }
 
         private void BackUpForm_Load(object sender, EventArgs e)
         {
-            using (BeautySalonEntities context = new BeautySalonEntities())
-            {
-                context.SeedDatabase();
-            }
-
-            InitializeDataGridView<Client>(dataGridViewClients, "Appointments");
-            InitializeDataGridView<Employee>(dataGridViewEmployees, "Appointments", "Payments");
-            InitializeDataGridView<Inventory>(dataGridViewInventory, "Services");
-            InitializeDataGridView<Service>(dataGridViewServices, "Appointments", "Inventory");
-            InitializeDataGridView<AppointmentsView>(dataGridViewAppointments);
+            InitializeDataGridView<Client>(dataGridViewClients, beautySalonDataset, "Appointments");
+            InitializeDataGridView<Employee>(dataGridViewEmployees, beautySalonDataset, "Appointments", "Payments");
+            InitializeDataGridView<Inventory>(dataGridViewInventory, beautySalonDataset, "Services");
+            InitializeDataGridView<Service>(dataGridViewServices, beautySalonDataset, "Appointments", "Inventory");
+            InitializeDataGridView<AppointmentsView>(dataGridViewAppointments, beautySalonDataset);
             //InitializeDataGridView<Payment>(dataGridViewPayments);
 
         }
@@ -60,7 +57,7 @@ namespace BeautySalonApp
         /// <typeparam name="T"></typeparam>
         /// <param name="gridView"></param>
         /// <param name="columnsToHide"></param>
-        private void InitializeDataGridView<T>(DataGridView gridView, params string[] columnsToHide) where T : class
+        private void InitializeDataGridView<T>(DataGridView gridView, DataSet dataSet, params string[] columnsToHide) where T : class
         {
             // Set up gridview
             gridView.AllowUserToAddRows = false;
@@ -78,6 +75,27 @@ namespace BeautySalonApp
             {
                 gridView.Columns[column].Visible = false;
             }
+
+            string tableName;
+
+            switch (typeof(T).Name)
+            {
+                case "Inventory":
+                    tableName = "Inventory";
+                    break;
+                case "AppointmentsView":
+                    tableName = "AppointmentsView";
+                    break;
+
+                default:
+                    EnglishPluralizationService pluralize = new EnglishPluralizationService();
+                    tableName = pluralize.Pluralize(typeof(T).Name);
+                    break;
+            }
+
+            DataTable table = beautySalonDB.GetDataTable(tableName);
+
+            dataSet.Tables.Add(table);
 
         }
     }
