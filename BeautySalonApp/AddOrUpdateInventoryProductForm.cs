@@ -98,8 +98,6 @@ namespace BeautySalonApp
             {
                 MessageBox.Show("Error adding product to Database");
             }
-
-
         }
     }
 }

@@ -52,6 +52,8 @@ namespace BeautySalonApp
             this.labelAppointmentsForm = new System.Windows.Forms.Label();
             this.tabPageInventory = new System.Windows.Forms.TabPage();
             this.tabPageServices = new System.Windows.Forms.TabPage();
+            this.tabPagePayments = new System.Windows.Forms.TabPage();
+            this.tabPageSales = new System.Windows.Forms.TabPage();
             this.tabControlBeautySalonApp.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -63,6 +65,8 @@ namespace BeautySalonApp
             this.tabControlBeautySalonApp.Controls.Add(this.tabPage1);
             this.tabControlBeautySalonApp.Controls.Add(this.tabPageInventory);
             this.tabControlBeautySalonApp.Controls.Add(this.tabPageServices);
+            this.tabControlBeautySalonApp.Controls.Add(this.tabPagePayments);
+            this.tabControlBeautySalonApp.Controls.Add(this.tabPageSales);
             this.tabControlBeautySalonApp.Location = new System.Drawing.Point(3, 2);
             this.tabControlBeautySalonApp.Name = "tabControlBeautySalonApp";
             this.tabControlBeautySalonApp.SelectedIndex = 0;
@@ -93,7 +97,7 @@ namespace BeautySalonApp
             this.tabPage1.Controls.Add(this.labelAppointmentsForm);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(942, 645);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Appointments";
@@ -274,7 +278,7 @@ namespace BeautySalonApp
             // 
             this.tabPageInventory.Location = new System.Drawing.Point(4, 22);
             this.tabPageInventory.Name = "tabPageInventory";
-            this.tabPageInventory.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPageInventory.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageInventory.Size = new System.Drawing.Size(942, 645);
             this.tabPageInventory.TabIndex = 1;
             this.tabPageInventory.Text = "Inventory";
@@ -283,12 +287,32 @@ namespace BeautySalonApp
             // tabPageServices
             // 
             this.tabPageServices.Location = new System.Drawing.Point(4, 22);
-            this.tabPageServices.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPageServices.Margin = new System.Windows.Forms.Padding(2);
             this.tabPageServices.Name = "tabPageServices";
             this.tabPageServices.Size = new System.Drawing.Size(942, 645);
             this.tabPageServices.TabIndex = 2;
             this.tabPageServices.Text = "Services";
             this.tabPageServices.UseVisualStyleBackColor = true;
+            // 
+            // tabPagePayments
+            // 
+            this.tabPagePayments.Location = new System.Drawing.Point(4, 22);
+            this.tabPagePayments.Name = "tabPagePayments";
+            this.tabPagePayments.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPagePayments.Size = new System.Drawing.Size(942, 645);
+            this.tabPagePayments.TabIndex = 3;
+            this.tabPagePayments.Text = "Payments";
+            this.tabPagePayments.UseVisualStyleBackColor = true;
+            // 
+            // tabPageSales
+            // 
+            this.tabPageSales.Location = new System.Drawing.Point(4, 22);
+            this.tabPageSales.Name = "tabPageSales";
+            this.tabPageSales.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageSales.Size = new System.Drawing.Size(942, 645);
+            this.tabPageSales.TabIndex = 4;
+            this.tabPageSales.Text = "Sales";
+            this.tabPageSales.UseVisualStyleBackColor = true;
             // 
             // BeautySalonMainForm
             // 
@@ -297,6 +321,7 @@ namespace BeautySalonApp
             this.ClientSize = new System.Drawing.Size(957, 679);
             this.Controls.Add(this.tabControlBeautySalonApp);
             this.Name = "BeautySalonMainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.tabControlBeautySalonApp.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -332,6 +357,8 @@ namespace BeautySalonApp
         private System.Windows.Forms.Button buttonAppointmentsDeleteAppointment;
         private System.Windows.Forms.TabPage tabPageServices;
         private System.Windows.Forms.Button buttonDBBackup;
+        private System.Windows.Forms.TabPage tabPagePayments;
+        private System.Windows.Forms.TabPage tabPageSales;
     }
 }
 

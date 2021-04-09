@@ -85,7 +85,7 @@ namespace BeautySalonApp
         private void ButtonNewProduct_Click(object sender, EventArgs e)
         {
             AddOrUpdateInventoryProductForm addInventoryProductForm = new AddOrUpdateInventoryProductForm();
-            addInventoryProductForm.Show();
+            addInventoryProductForm.ShowDialog();
 
             dataGridViewInventory.DataSource = Controller<BeautySalonEntities, Inventory>.SetBindingList();
             dataGridViewInventory.Refresh();

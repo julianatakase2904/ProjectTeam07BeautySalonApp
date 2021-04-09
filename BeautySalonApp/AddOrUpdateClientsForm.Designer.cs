@@ -140,6 +140,7 @@ namespace BeautySalonApp
             this.Controls.Add(this.labelClientsListBox);
             this.Controls.Add(this.listBoxClients);
             this.Name = "AddOrUpdateClientsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddOrUpdateClientsForm";
             this.ResumeLayout(false);
             this.PerformLayout();

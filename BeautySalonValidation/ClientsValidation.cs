@@ -50,5 +50,13 @@ namespace BeautySalonValidation
             }
         }
 
+        public static bool PaymentExists(this Payment payment)
+        {
+            using (BeautySalonEntities context = new BeautySalonEntities())
+            {
+                context.Database.Log = (s => Debug.Write(s));
+                return context.Payments.Any(a => a.EmployeeId == payment.EmployeeId && a.AppointmentId == payment.AppointmentId);
+            }
+        }
     }
 }

@@ -69,6 +69,12 @@
     <Compile Include="AddOrUpdateClientsForm.Designer.cs">
       <DependentUpon>AddOrUpdateClientsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddOrUpdatePaymentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddOrUpdatePaymentForm.Designer.cs">
+      <DependentUpon>AddOrUpdatePaymentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddServiceForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +100,18 @@
     <Compile Include="DeleteAppointmentsForm.Designer.cs">
       <DependentUpon>DeleteAppointmentsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SalesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalesForm.Designer.cs">
+      <DependentUpon>SalesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PaymentForm.Designer.cs">
+      <DependentUpon>PaymentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="InventoryForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +131,9 @@
     <EmbeddedResource Include="AddOrUpdateClientsForm.resx">
       <DependentUpon>AddOrUpdateClientsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddOrUpdatePaymentForm.resx">
+      <DependentUpon>AddOrUpdatePaymentForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddServiceForm.resx">
       <DependentUpon>AddServiceForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -124,6 +145,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DeleteAppointmentsForm.resx">
       <DependentUpon>DeleteAppointmentsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalesForm.resx">
+      <DependentUpon>SalesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaymentForm.resx">
+      <DependentUpon>PaymentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InventoryForm.resx">
       <DependentUpon>InventoryForm.cs</DependentUpon>
