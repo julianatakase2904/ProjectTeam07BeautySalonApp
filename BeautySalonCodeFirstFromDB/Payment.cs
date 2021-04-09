@@ -14,6 +14,9 @@ namespace BeautySalonCodeFirstFromDB
 
         public int AppointmentId { get; set; }
 
+        public decimal Tax { get; set; }
+        public decimal Paid { get; set; }
+
         public virtual Appointment Appointment { get; set; }
 
         public virtual Employee Employee { get; set; }

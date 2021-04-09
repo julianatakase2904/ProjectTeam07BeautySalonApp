@@ -19,9 +19,6 @@ namespace BeautySalonApp
             // Set the application name
             this.Text = "Beauty Salon Application";
 
-            this.tabPageInventory.Controls.Add(new InventoryForm());
-            this.tabPageServices.Controls.Add(new ServicesForm());
-
             // Register event handlers
             this.Load += BeautySalonMainForm_Load;
             buttonAppointmentsSaveAppointment.Click += ButtonAppointmentsSaveAppointment_Click;
@@ -148,7 +145,13 @@ namespace BeautySalonApp
 
             // ** APPOINTMENTS gridview
             
-            InitializeDataGridView<Appointment>(dataGridViewAppointmentsOfTheDay);
+            InitializeDataGridView<Appointment>(dataGridViewAppointmentsOfTheDay, new string[] { "AppointmentId", "EmployeeId" });
+
+
+            this.tabPageInventory.Controls.Add(new InventoryForm());
+            this.tabPageServices.Controls.Add(new ServicesForm());
+            this.tabPagePayments.Controls.Add(new PaymentForm());
+            this.tabPageSales.Controls.Add(new SalesForm());
         }
 
         /// <summary>

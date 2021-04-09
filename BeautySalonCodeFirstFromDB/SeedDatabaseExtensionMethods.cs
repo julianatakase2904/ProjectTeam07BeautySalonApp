@@ -23,12 +23,14 @@ namespace BeautySalonCodeFirstFromDB
             // First drop table views
             context.Database.ExecuteSqlCommand("drop table AppointmentsView");
             context.Database.ExecuteSqlCommand("drop table ServicesView");
+            context.Database.ExecuteSqlCommand("drop table PaymentsView");
+            context.Database.ExecuteSqlCommand("drop table SalesView");
 
             // Create views here
             string createView = "Create View[dbo].[AppointmentsView] AS " +
                 "SELECT [Appointments].AppointmentDate, [Appointments]. AppointmentTime, " +
                 "[Clients].ClientFirstName, [Clients].ClientLastName, [Employees].EmployeeFirstName, " +
-                "[Employees].EmployeeLastName,  [Services].ServiceName, [Services].ServicePrice " +
+                "[Employees].EmployeeLastName,  [Services].ServiceName, [Services].ServicePrice, [Appointments].AppointmentId, [Employees].EmployeeId " +
                 "FROM [Appointments] inner join [Clients] on [Clients].ClientId = [Appointments].ClientId " +
                 "inner join [Services] on [Services].ServiceId = [Appointments].ServiceId " +
                 "inner join [Employees] on [Employees].EmployeeId = [Appointments].EmployeeId;";
@@ -39,9 +41,29 @@ namespace BeautySalonCodeFirstFromDB
             "INNER JOIN [Inventory] " +
             "ON [Services].ProductId = [Inventory].ProductId";
 
+            // Create views here
+            string createPaymentView = "Create View[dbo].[PaymentsView] AS " +
+                "SELECT [Appointments].AppointmentDate, [Appointments]. AppointmentTime, " +
+                "[Clients].ClientFirstName, [Clients].ClientLastName, [Employees].EmployeeFirstName, " +
+                "[Employees].EmployeeLastName,  [Services].ServiceName, [Services].ServicePrice, [Payments].Tax, [Payments].Paid, [Payments].PaymentId " +
+                "FROM [Appointments] inner join [Clients] on [Clients].ClientId = [Appointments].ClientId " +
+                "inner join [Services] on [Services].ServiceId = [Appointments].ServiceId " +
+                "inner join [Employees] on [Employees].EmployeeId = [Appointments].EmployeeId " +
+                "inner join [Payments] on [Payments].AppointmentId = [Appointments].AppointmentId;";
+
+            // Create views here
+            string createSalesView = "Create View[dbo].[SalesView] AS " +
+                "Select Inventory.ProductId, Inventory.ProductName, ProductQuantity, " +
+                "(select count(*) from Appointments left join Services on Appointments.ServiceId = Services.ServiceId where Services.ProductId = Inventory.ProductId) as Sell, " +
+                "ProductQuantity -(select count(*) from Appointments left join Services on Appointments.ServiceId = Services.ServiceId where Services.ProductId = Inventory.ProductId) as Remain From Inventory " +
+                "Left Join Services on Services.ProductId = Inventory.ProductId Group By Inventory.ProductId, Inventory.ProductName, Inventory.ProductQuantity; ";
+
+            
             // Execute SQL command
             context.Database.ExecuteSqlCommand(createView);
             context.Database.ExecuteSqlCommand(createServicesView);
+            context.Database.ExecuteSqlCommand(createPaymentView);
+            context.Database.ExecuteSqlCommand(createSalesView);
 
             context.SaveChanges();
 
@@ -122,20 +144,21 @@ namespace BeautySalonCodeFirstFromDB
             context.Appointments.AddRange(appointments);
             context.SaveChanges();
 
-            // List of Payments
-            List<Payment> payments = new List<Payment>()
-            {
-                new Payment { Employee = employees[0], Appointment = appointments[0]},
-                new Payment { Employee = employees[1], Appointment = appointments[1]},
-                new Payment { Employee = employees[2], Appointment = appointments[2]},
-                new Payment { Employee = employees[3], Appointment = appointments[3]},
-                new Payment { Employee = employees[4], Appointment = appointments[4]},
-                new Payment { Employee = employees[5], Appointment = appointments[5]}
-            };
-            context.Payments.AddRange(payments);
-            context.SaveChanges();
+            //// List of Payments
+            //List<Payment> payments = new List<Payment>()
+            //{
+            //    new Payment { Employee = employees[0], Appointment = appointments[0]},
+            //    new Payment { Employee = employees[1], Appointment = appointments[1]},
+            //    new Payment { Employee = employees[2], Appointment = appointments[2]},
+            //    new Payment { Employee = employees[3], Appointment = appointments[3]},
+            //    new Payment { Employee = employees[4], Appointment = appointments[4]},
+            //    new Payment { Employee = employees[5], Appointment = appointments[5]}
+            //};
+            //context.Payments.AddRange(payments);
+            //context.SaveChanges();
 
             context.AppointmentsViews.Load();
+            context.PaymentViews.Load();
         }
     }
 }

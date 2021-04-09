@@ -38,55 +38,62 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(114, 66);
+            this.label1.Location = new System.Drawing.Point(76, 43);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(110, 20);
+            this.label1.Size = new System.Drawing.Size(75, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Product Name";
             // 
             // textBoxProductName
             // 
-            this.textBoxProductName.Location = new System.Drawing.Point(71, 89);
+            this.textBoxProductName.Location = new System.Drawing.Point(47, 58);
+            this.textBoxProductName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxProductName.Name = "textBoxProductName";
-            this.textBoxProductName.Size = new System.Drawing.Size(200, 26);
+            this.textBoxProductName.Size = new System.Drawing.Size(135, 20);
             this.textBoxProductName.TabIndex = 1;
             // 
             // textBoxProductQuantity
             // 
-            this.textBoxProductQuantity.Location = new System.Drawing.Point(118, 195);
+            this.textBoxProductQuantity.Location = new System.Drawing.Point(79, 127);
+            this.textBoxProductQuantity.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxProductQuantity.Name = "textBoxProductQuantity";
-            this.textBoxProductQuantity.Size = new System.Drawing.Size(100, 26);
+            this.textBoxProductQuantity.Size = new System.Drawing.Size(68, 20);
             this.textBoxProductQuantity.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(106, 169);
+            this.label2.Location = new System.Drawing.Point(71, 110);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(127, 20);
+            this.label2.Size = new System.Drawing.Size(86, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Product Quantity";
             // 
             // buttonAddProduct
             // 
-            this.buttonAddProduct.Location = new System.Drawing.Point(100, 275);
+            this.buttonAddProduct.Location = new System.Drawing.Point(67, 179);
+            this.buttonAddProduct.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonAddProduct.Name = "buttonAddProduct";
-            this.buttonAddProduct.Size = new System.Drawing.Size(130, 40);
+            this.buttonAddProduct.Size = new System.Drawing.Size(87, 26);
             this.buttonAddProduct.TabIndex = 4;
             this.buttonAddProduct.Text = "Add Product";
             this.buttonAddProduct.UseVisualStyleBackColor = true;
             // 
-            // AddInventoryProductForm
+            // AddOrUpdateInventoryProductForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(328, 394);
+            this.ClientSize = new System.Drawing.Size(219, 256);
             this.Controls.Add(this.buttonAddProduct);
             this.Controls.Add(this.textBoxProductQuantity);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBoxProductName);
             this.Controls.Add(this.label1);
-            this.Name = "AddInventoryProductForm";
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Name = "AddOrUpdateInventoryProductForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "New Product";
             this.ResumeLayout(false);
             this.PerformLayout();

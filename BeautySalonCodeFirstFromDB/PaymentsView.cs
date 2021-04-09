@@ -6,8 +6,8 @@ namespace BeautySalonCodeFirstFromDB
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("AppointmentsView")]
-    public partial class AppointmentsView
+    [Table("PaymentsView")]
+    public partial class PaymentsView
     {
         [Key]
         [Column(Order = 0)]
@@ -50,10 +50,14 @@ namespace BeautySalonCodeFirstFromDB
 
         [Key]
         [Column(Order = 8)]
-        public int AppointmentId { get; set; }
+        public decimal Tax { get; set; }
 
         [Key]
         [Column(Order = 9)]
-        public int EmployeeId { get; set; }
+        public decimal Paid { get; set; }
+
+        [Key]
+        [Column(Order = 10)]
+        public int PaymentId { get; set; }
     }
 }

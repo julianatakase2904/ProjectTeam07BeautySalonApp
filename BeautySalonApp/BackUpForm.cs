@@ -47,6 +47,7 @@ namespace BeautySalonApp
             InitializeDataGridView<Inventory>(dataGridViewInventory, beautySalonDataset, "Services");
             InitializeDataGridView<Service>(dataGridViewServices, beautySalonDataset, "Appointments", "Inventory");
             InitializeDataGridView<AppointmentsView>(dataGridViewAppointments, beautySalonDataset);
+            InitializeDataGridView<Payment>(dataGridViewPaymentsReport, beautySalonDataset, "Appointment", "Employee");
             //InitializeDataGridView<Payment>(dataGridViewPayments);
 
         }
