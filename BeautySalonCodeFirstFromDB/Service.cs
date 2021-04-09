@@ -14,14 +14,19 @@ namespace BeautySalonCodeFirstFromDB
             Appointments = new HashSet<Appointment>();
         }
 
+        [Column(Order = 0)]
+        [Key]
         public int ServiceId { get; set; }
 
         [Required]
+        [Column(Order = 1)]
         [StringLength(50)]
         public string ServiceName { get; set; }
 
+        [Column(Order = 2)]
         public decimal ServicePrice { get; set; }
 
+        [Column(Order = 3)]
         public int? ProductId { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

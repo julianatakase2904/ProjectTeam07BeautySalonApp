@@ -21,10 +21,15 @@ namespace BeautySalonCodeFirstFromDB
         public virtual DbSet<Payment> Payments { get; set; }
         public virtual DbSet<Service> Services { get; set; }
         public virtual DbSet<AppointmentsView> AppointmentsViews { get; set; }
-        public virtual DbSet<ServicesView> ServicesViews { get; set; }
+        public virtual DbSet<ServiceInventoryView> ServiceInventoryViews { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Appointment>()
+                .HasMany(e => e.Payments)
+                .WithRequired(e => e.Appointment)
+                .WillCascadeOnDelete(true);
+
             modelBuilder.Entity<Appointment>()
                 .HasMany(e => e.Payments)
                 .WithRequired(e => e.Appointment)
@@ -52,13 +57,18 @@ namespace BeautySalonCodeFirstFromDB
             modelBuilder.Entity<Service>()
                 .HasMany(e => e.Appointments)
                 .WithRequired(e => e.Service)
-                .WillCascadeOnDelete(false);
+                .WillCascadeOnDelete(true);
 
             modelBuilder.Entity<AppointmentsView>()
                 .Property(e => e.ServicePrice)
                 .HasPrecision(18, 0);
 
-            modelBuilder.Entity<ServicesView>();
+            modelBuilder.Entity<Inventory>()
+                .HasMany(c => c.Services)
+                .WithRequired(x => x.Inventory)
+                .WillCascadeOnDelete(true);
+
+            modelBuilder.Entity<ServiceInventoryView>();
         }
     }
 }

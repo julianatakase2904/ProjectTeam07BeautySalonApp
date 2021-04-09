@@ -76,7 +76,7 @@
             this.buttonAddProduct.Text = "Add Product";
             this.buttonAddProduct.UseVisualStyleBackColor = true;
             // 
-            // AddInventoryProductForm
+            // AddOrUpdateInventoryProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -86,7 +86,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBoxProductName);
             this.Controls.Add(this.label1);
-            this.Name = "AddInventoryProductForm";
+            this.Name = "AddOrUpdateInventoryProductForm";
             this.Text = "New Product";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -69,11 +69,11 @@
     <Compile Include="AddOrUpdateClientsForm.Designer.cs">
       <DependentUpon>AddOrUpdateClientsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddServiceForm.cs">
+    <Compile Include="AddOrUpdateServiceForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddServiceForm.Designer.cs">
-      <DependentUpon>AddServiceForm.cs</DependentUpon>
+    <Compile Include="AddOrUpdateServiceForm.Designer.cs">
+      <DependentUpon>AddOrUpdateServiceForm.cs</DependentUpon>
     </Compile>
     <Compile Include="BackUpForm.cs">
       <SubType>Form</SubType>
@@ -113,8 +113,8 @@
     <EmbeddedResource Include="AddOrUpdateClientsForm.resx">
       <DependentUpon>AddOrUpdateClientsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddServiceForm.resx">
-      <DependentUpon>AddServiceForm.cs</DependentUpon>
+    <EmbeddedResource Include="AddOrUpdateServiceForm.resx">
+      <DependentUpon>AddOrUpdateServiceForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BackUpForm.resx">
       <DependentUpon>BackUpForm.cs</DependentUpon>

@@ -64,7 +64,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeedDatabaseExtensionMethods.cs" />
     <Compile Include="Service.cs" />
-    <Compile Include="ServicesView.cs" />
+    <Compile Include="ServiceInventoryView.cs" />
     <Compile Include="StringOverrides.cs" />
   </ItemGroup>
   <ItemGroup>
