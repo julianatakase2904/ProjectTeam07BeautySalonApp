@@ -23,33 +23,94 @@ namespace BeautySalonApp
             this.Visible = true;
             this.Dock = DockStyle.Fill;
 
-            InitializeDataGridView<ServicesView>(dataGridViewInventory);
-            // new string[] { "ServiceId","ProductId","Appointments" }
+            InitializeDataGridView<ServiceInventoryView>(dataGridViewInventory, "ServiceId", "ProductId", "ProductQuantity");
 
             buttonNewEntry.Click += ButtonNewEntry_Click;
             buttonDeleteEntry.Click += ButtonDeleteEntry_Click;
             buttonUpdateEntry.Click += ButtonUpdateEntry_Click;
         }
 
+        //EVENT HANDLERS
+
         private void ButtonUpdateEntry_Click(object sender, EventArgs e)
         {
-            AddServiceForm addServiceForm = new AddServiceForm();
-            addServiceForm.Show();
+            try
+            {
+                var row = dataGridViewInventory.CurrentRow;
+
+                if (row == null)
+                {
+                    throw new Exception("Please select an entry to update");
+                }
+                else
+                {
+                    Service service = new Service()
+                    {
+                        ServiceId = (int)row.Cells[0].Value,
+                        ServiceName = (string)row.Cells[1].Value,
+                        ServicePrice = (decimal)row.Cells[2].Value,
+                        ProductId = (int)row.Cells[3].Value
+                    };
+
+                    AddOrUpdateServiceForm updateServiceForm = new AddOrUpdateServiceForm(service);
+                    HandleForm(updateServiceForm);
+                }
+            }
+            catch (Exception err)
+            {
+
+                MessageBox.Show(err.Message);
+            }
+
+        }
+        private void ButtonNewEntry_Click(object sender, EventArgs e)
+        {
+            AddOrUpdateServiceForm addServiceForm = new AddOrUpdateServiceForm();
+            HandleForm(addServiceForm);
         }
 
         private void ButtonDeleteEntry_Click(object sender, EventArgs e)
         {
-            AddServiceForm addServiceForm = new AddServiceForm();
-            addServiceForm.Show();
+            try
+            {
+                //grab the selected row
+                var row = dataGridViewInventory.CurrentRow;
+
+                if (row == null)
+                {
+                    throw new Exception("Please select an entry to update");
+                }
+
+                //create a service object form the selected datagrid row
+                Service service = new Service()
+                {
+                    ServiceId = (int)row.Cells[0].Value,
+                    ServiceName = (string)row.Cells[1].Value,
+                    ServicePrice = (decimal)row.Cells[2].Value,
+                    ProductId = (int)row.Cells[3].Value
+                };
+
+                if (!Controller<BeautySalonEntities, Service>.DeleteEntity(service))
+                {
+                    throw new Exception("Unable to delete product from database");
+                }
+                else
+                {
+                    //successfully deleted service, refresh the data grid view
+                    dataGridViewInventory.DataSource = Controller<BeautySalonEntities, ServiceInventoryView>.SetBindingList();
+                    dataGridViewInventory.Refresh();
+
+                }
+            }
+            catch (Exception err)
+            {
+
+                MessageBox.Show(err.Message);
+            }
+
+
         }
 
-        private void ButtonNewEntry_Click(object sender, EventArgs e)
-        {
-            AddServiceForm addServiceForm = new AddServiceForm();
-            addServiceForm.Show();
-        }
-
-        //EVENT HANDLERS
 
 
         //PRIVATE METHODS
@@ -77,6 +138,22 @@ namespace BeautySalonApp
 
             dataGridViewInventory.DataSource = Controller<BeautySalonEntities, T>.SetBindingList();
             dataGridViewInventory.Refresh();
+
+        }
+
+        private void HandleForm(Form form)
+        {
+
+            var result = form.ShowDialog();
+
+            // update the inventory grid
+            if (result == DialogResult.OK)
+            {
+                dataGridViewInventory.DataSource = Controller<BeautySalonEntities, ServiceInventoryView>.GetEntitiesNoTracking();
+                dataGridViewInventory.Refresh();
+            }
+
+            form.Hide();
 
         }
     }

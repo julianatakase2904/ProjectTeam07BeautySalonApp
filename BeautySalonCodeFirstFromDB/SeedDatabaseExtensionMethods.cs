@@ -22,9 +22,13 @@ namespace BeautySalonCodeFirstFromDB
 
             // First drop table views
             context.Database.ExecuteSqlCommand("drop table AppointmentsView");
+<<<<<<< HEAD
             context.Database.ExecuteSqlCommand("drop table ServicesView");
             context.Database.ExecuteSqlCommand("drop table PaymentsView");
             context.Database.ExecuteSqlCommand("drop table SalesView");
+=======
+            context.Database.ExecuteSqlCommand("drop table ServiceInventoryView");
+>>>>>>> eade9d8858720bb18caa21900cbb0a37e680b3a4
 
             // Create views here
             string createView = "Create View[dbo].[AppointmentsView] AS " +
@@ -35,8 +39,9 @@ namespace BeautySalonCodeFirstFromDB
                 "inner join [Services] on [Services].ServiceId = [Appointments].ServiceId " +
                 "inner join [Employees] on [Employees].EmployeeId = [Appointments].EmployeeId;";
 
-            string createServicesView = "Create View[dbo].[ServicesView] AS " +
-            "SELECT [Services].ServiceName, [Services].ServicePrice, [Inventory].ProductName " +
+            //Create ServiceInventoryView
+            string createServicesView = "Create View[dbo].[ServiceInventoryView] AS " +
+            "SELECT [Services].ServiceId, [Services].ServiceName, [Services].ServicePrice, [Inventory].ProductId, [Inventory].ProductName, [Inventory].ProductQuantity " +
             "FROM [Services] " +
             "INNER JOIN [Inventory] " +
             "ON [Services].ProductId = [Inventory].ProductId";
@@ -126,7 +131,7 @@ namespace BeautySalonCodeFirstFromDB
                 new Service { ServiceName = "Full Color", ServicePrice = 130.0M, Inventory = inventories[2]},
                 new Service { ServiceName = "Partial Color", ServicePrice = 70.0M, Inventory = inventories[3]},
                 new Service { ServiceName = "Permanent Color", ServicePrice = 90.0M, Inventory = inventories[2]},
-                new Service { ServiceName = "Perm", ServicePrice = 80.0M }
+                new Service { ServiceName = "Perm", ServicePrice = 80.0M, Inventory = inventories[1] }
             };
             context.Services.AddRange(services);
             context.SaveChanges();

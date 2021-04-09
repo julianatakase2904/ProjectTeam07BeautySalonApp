@@ -57,4 +57,16 @@ namespace BeautySalonCodeFirstFromDB
             return $"{this.AppointmentDate} ==> {this.AppointmentTime}, {context.Clients.Find(client)}";
         }
     }
+
+    public partial class Inventory
+    {
+        public override string ToString()
+        {
+            //Find the client name
+            BeautySalonEntities context = new BeautySalonEntities();
+            var product = this.ProductId;
+
+            return $"{this.ProductName}";
+        }
+    }
 }

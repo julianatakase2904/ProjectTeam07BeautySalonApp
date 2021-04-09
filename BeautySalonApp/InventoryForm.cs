@@ -23,8 +23,13 @@ namespace BeautySalonApp
             this.FormBorderStyle = FormBorderStyle.None;
             this.Visible = true;
             this.Dock = DockStyle.Fill;
+            this.Load += InventoryForm_Load;
 
-            InitializeDataGridView<Inventory>(dataGridViewInventory,new string[] {"ProductId","Services"});
+            InitializeDataGridView<Inventory>(dataGridViewInventory, new string[] { "ProductId", "Services" });
+            dataGridViewInventory.DataSource = Controller<BeautySalonEntities, Inventory>.SetBindingList();
+            dataGridViewInventory.Refresh();
+
+            AddOrUpdateInventoryProductForm addInventoryProductForm = new AddOrUpdateInventoryProductForm();
 
             buttonNewProduct.Click += ButtonNewProduct_Click;
             buttonDeleteProduct.Click += ButtonDeleteProduct_Click;
@@ -32,67 +37,95 @@ namespace BeautySalonApp
 
         }
 
+        private void InventoryForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+
+        //EVENT HANDLERS
+
         private void ButtonUpdateProduct_Click(object sender, EventArgs e)
         {
-            var row = dataGridViewInventory.CurrentRow;
 
-            Inventory product = new Inventory()
+            try
             {
-                ProductId = (int)row.Cells[0].Value,
-                ProductName = (string)row.Cells[1].Value,
-                ProductQuantity = (int)row.Cells[2].Value
-            };
+                var row = dataGridViewInventory.CurrentRow;
 
-            AddOrUpdateInventoryProductForm addInventoryProductForm = new AddOrUpdateInventoryProductForm(product);
-            addInventoryProductForm.Show();
+                if (row == null)
+                {
+                    throw new Exception("Please select an entry to update");
+                }
 
-            dataGridViewInventory.DataSource = Controller<BeautySalonEntities, Inventory>.SetBindingList();
-            dataGridViewInventory.Refresh();
+                Inventory product = new Inventory()
+                {
+                    ProductId = (int)row.Cells[0].Value,
+                    ProductName = (string)row.Cells[1].Value,
+                    ProductQuantity = (int)row.Cells[2].Value
+                };
+
+                AddOrUpdateInventoryProductForm updateInventoryProductForm = new AddOrUpdateInventoryProductForm(product);
+                HandleForm(updateInventoryProductForm);
+
+            }
+            catch (Exception err)
+            {
+
+                MessageBox.Show(err.Message);
+            }
 
         }
 
         private void ButtonDeleteProduct_Click(object sender, EventArgs e)
         {
-
-            var row = dataGridViewInventory.CurrentRow;
-
-            Inventory product = new Inventory()
+            try
             {
-                ProductId = (int)row.Cells[0].Value,
-                ProductName = (string)row.Cells[1].Value,
-                ProductQuantity = (int)row.Cells[2].Value
-            };
+                var row = dataGridViewInventory.CurrentRow;
 
-            if (!Controller<BeautySalonEntities, Inventory>.DeleteEntity(product))
-            {
-                MessageBox.Show("Unable to delete product from database");
-            } else
-            {
+                if (row == null)
+                {
+                    throw new Exception("Please select an entry to update");
+                }
 
-                dataGridViewInventory.DataSource = Controller<BeautySalonEntities, Inventory>.SetBindingList();
-                dataGridViewInventory.Refresh();
+                Inventory product = new Inventory()
+                {
+                    ProductId = (int)row.Cells[0].Value,
+                    ProductName = (string)row.Cells[1].Value,
+                    ProductQuantity = (int)row.Cells[2].Value
+                };
+
+                if (!Controller<BeautySalonEntities, Inventory>.DeleteEntity(product))
+                {
+                    MessageBox.Show("Unable to delete product from database");
+                }
+                else
+                {
+
+                    dataGridViewInventory.DataSource = Controller<BeautySalonEntities, Inventory>.SetBindingList();
+                    dataGridViewInventory.Refresh();
+
+                }
 
             }
+            catch (Exception err)
+            {
 
-            //List[0].Cells.List[x].Value
-            //0 - productID
-            //1 - productName
-            //2 - productQuantity
-
+                MessageBox.Show(err.Message);
+            }
 
         }
 
         private void ButtonNewProduct_Click(object sender, EventArgs e)
         {
+
             AddOrUpdateInventoryProductForm addInventoryProductForm = new AddOrUpdateInventoryProductForm();
+<<<<<<< HEAD
             addInventoryProductForm.ShowDialog();
+=======
+            HandleForm(addInventoryProductForm);
+>>>>>>> eade9d8858720bb18caa21900cbb0a37e680b3a4
 
-            dataGridViewInventory.DataSource = Controller<BeautySalonEntities, Inventory>.SetBindingList();
-            dataGridViewInventory.Refresh();
         }
-
-        //EVENT HANDLERS
-
 
         //PRIVATE METHODS
 
@@ -121,5 +154,23 @@ namespace BeautySalonApp
             dataGridViewInventory.Refresh();
 
         }
+
+
+        private void HandleForm(Form form)
+        {
+
+            var result = form.ShowDialog();
+
+            // update the inventory grid
+            if (result == DialogResult.OK)
+            {
+                dataGridViewInventory.DataSource = Controller<BeautySalonEntities, Inventory>.GetEntitiesNoTracking();
+                dataGridViewInventory.Refresh();
+            }
+
+            form.Hide();
+
+        }
+
     }
 }

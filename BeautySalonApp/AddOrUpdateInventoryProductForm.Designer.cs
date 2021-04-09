@@ -91,9 +91,13 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBoxProductName);
             this.Controls.Add(this.label1);
+<<<<<<< HEAD
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "AddOrUpdateInventoryProductForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+=======
+            this.Name = "AddOrUpdateInventoryProductForm";
+>>>>>>> eade9d8858720bb18caa21900cbb0a37e680b3a4
             this.Text = "New Product";
             this.ResumeLayout(false);
             this.PerformLayout();
