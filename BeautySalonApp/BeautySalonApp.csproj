@@ -75,6 +75,12 @@
     <Compile Include="AddOrUpdatePaymentForm.Designer.cs">
       <DependentUpon>AddOrUpdatePaymentForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddOrUpdateServiceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddOrUpdateServiceForm.Designer.cs">
+      <DependentUpon>AddOrUpdateServiceForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddServiceForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddOrUpdatePaymentForm.resx">
       <DependentUpon>AddOrUpdatePaymentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddOrUpdateServiceForm.resx">
+      <DependentUpon>AddOrUpdateServiceForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddServiceForm.resx">
       <DependentUpon>AddServiceForm.cs</DependentUpon>

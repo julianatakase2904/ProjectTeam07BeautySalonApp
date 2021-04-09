@@ -14,6 +14,7 @@ namespace BeautySalonCodeFirstFromDB
             Payments = new HashSet<Payment>();
         }
 
+        [Key]
         public int AppointmentId { get; set; }
 
         [Required]

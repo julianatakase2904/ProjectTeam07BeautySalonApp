@@ -70,6 +70,7 @@ namespace BeautySalonApp
                     UpdateInventoryProduct(product);
                 }
 
+                this.DialogResult = DialogResult.OK;
                 Close();
 
             }
@@ -96,8 +97,9 @@ namespace BeautySalonApp
 
             if (!Controller<BeautySalonEntities, Inventory>.UpdateEntity(product))
             {
-                MessageBox.Show("Error adding product to Database");
+                throw new Exception("Error adding updated product to the Database");
             }
+
         }
     }
 }
